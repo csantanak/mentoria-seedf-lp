@@ -208,6 +208,40 @@ section{padding-block:clamp(44px,6vw,80px); position:relative}
 .photo img{display:block; width:100%; height:auto}
 .photo::after{content:""; position:absolute; inset:0; box-shadow:inset 0 0 60px rgba(16,10,31,.5); pointer-events:none}
 
+/* prova social */
+.quote-big{
+  display:grid; grid-template-columns:auto 1fr; gap:clamp(16px,2.5vw,28px); align-items:start;
+  border-block:1px solid var(--line); padding-block:clamp(26px,3.5vw,38px); margin-bottom:26px;
+}
+.qmark{font-family:"Archivo",sans-serif; font-weight:900; font-size:clamp(3.4rem,7vw,5.2rem); line-height:.72; color:var(--gold); opacity:.5}
+.quote-big blockquote{margin:0; font-family:"Archivo",sans-serif; font-weight:600; letter-spacing:-.02em; color:var(--white);
+  font-size:clamp(1.18rem,2.6vw,1.72rem); line-height:1.28; max-width:34ch}
+.quote-who{display:flex; align-items:center; gap:12px; margin-top:16px; flex-wrap:wrap}
+.quote-who .nome{font-family:"IBM Plex Mono",monospace; font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted)}
+.selo{font-family:"IBM Plex Mono",monospace; font-size:.66rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--night); background:var(--foil); border-radius:99px; padding:6px 13px}
+
+.provas{display:grid; grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr); gap:20px; align-items:start}
+.prova{background:linear-gradient(170deg,rgba(36,24,64,.8),rgba(22,14,40,.8)); border:1px solid var(--line-soft);
+  border-radius:var(--r); overflow:hidden; display:flex; flex-direction:column}
+.prova-cap{display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--line-soft)}
+.prova-cap .k{font-family:"IBM Plex Mono",monospace; font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)}
+.player{position:relative; width:100%; aspect-ratio:16/10; max-width:100%; background:#0B0716; border:none; padding:0;
+  cursor:pointer; display:grid; place-items:center; overflow:hidden}
+.player::before{content:""; position:absolute; inset:0;
+  background:radial-gradient(circle at 50% 42%, rgba(224,33,138,.34), transparent 62%), linear-gradient(160deg,#241840,#140D26)}
+.player-in{position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; padding:20px}
+.play{width:64px; height:64px; border-radius:50%; background:var(--foil); display:grid; place-items:center;
+  box-shadow:0 14px 34px -12px rgba(232,180,74,.8); transition:transform .18s}
+.player:hover .play{transform:scale(1.07)}
+.play svg{width:22px; height:22px; margin-left:3px}
+.player-t{font-family:"Archivo",sans-serif; font-weight:700; font-size:1.02rem; color:var(--white)}
+.player-s{font-size:.85rem; color:var(--muted)}
+.prova video{width:100%; height:auto; display:block; background:#000}
+.print{max-height:520px; overflow-y:auto; overscroll-behavior:contain}
+.print img{display:block; width:100%; height:auto}
+.prova-foot{padding:13px 18px; font-size:.82rem; color:var(--muted); border-top:1px solid var(--line-soft)}
+
 /* etapas */
 .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
 .step{display:flex; flex-direction:column; gap:9px; padding-top:16px; border-top:2px solid; border-image:var(--foil) 1}
@@ -264,6 +298,8 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
   font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
 
 @media (max-width:940px){
+  .provas{grid-template-columns:1fr}
+  .quote-big{grid-template-columns:1fr; gap:4px}
   .hero-grid{grid-template-columns:1fr}
   .ficha{position:static}
   .strip .wrap{grid-template-columns:1fr 1fr}
@@ -503,6 +539,48 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Prova social</p>
+      <h2>Não é promessa. É resultado de quem já passou por aqui.</h2>
+    </div>
+
+    <div class="quote-big">
+      <span class="qmark" aria-hidden="true">&ldquo;</span>
+      <div>
+        <blockquote>Fui aprovada no concurso da prefeitura de Feira de Santana. Seu projeto de pegar em nossa mão e nos ensinar a psicografar as questões fez toda a diferença nos meus estudos.</blockquote>
+        <div class="quote-who">
+          <span class="nome">Cris · aluna da mentoria</span>
+          <span class="selo">Aprovada · Feira de Santana</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="provas">
+      <div class="prova">
+        <div class="prova-cap"><span class="k">Depoimento em vídeo</span></div>
+        <button class="player" id="player" type="button" aria-label="Reproduzir o depoimento em vídeo">
+          <span class="player-in">
+            <span class="play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="#1B1005"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <span class="player-t">Ouça de quem fez a mentoria</span>
+            <span class="player-s">Toque para assistir · o vídeo só carrega quando você pedir</span>
+          </span>
+        </button>
+        <p class="prova-foot">Depoimento enviado por aluna da professora Jaqueline Santos.</p>
+      </div>
+
+      <div class="prova">
+        <div class="prova-cap"><span class="k">Mensagem recebida</span></div>
+        <div class="print"><img src="assets/depoimento-cris.jpg" alt="Mensagem de WhatsApp de uma aluna contando a aprovação no concurso da Prefeitura de Feira de Santana, com o print do resultado final" loading="lazy"></div>
+        <p class="prova-foot">Print original, com o resultado final do concurso em anexo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="tint">
   <div class="wrap">
     <div class="sec-head">
@@ -612,6 +690,21 @@ const CONFIG = {
     document.getElementById("prof-photo").remove();
     document.querySelector("#prof-sec .prof-grid").style.gridTemplateColumns = "1fr";
   });
+
+  /* vídeo carrega só quando a pessoa pede; se o arquivo não existir, o card sai */
+  const player = document.getElementById("player");
+  if (player) {
+    player.addEventListener("click", () => {
+      const v = document.createElement("video");
+      v.src = "assets/depoimento-video.mp4";
+      v.controls = true;
+      v.autoplay = true;
+      v.playsInline = true;
+      v.addEventListener("error", () => player.closest(".prova").remove());
+      player.replaceWith(v);
+      v.focus();
+    }, { once: true });
+  }
 
   const form = document.getElementById("lead");
   const done = document.getElementById("done");
