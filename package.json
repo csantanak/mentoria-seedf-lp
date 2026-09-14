@@ -1,0 +1,17 @@
+{
+  "name": "mentoria-seedf-leads",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing de captura da Mentoria SEEDF Efetivo com painel de leads",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}
