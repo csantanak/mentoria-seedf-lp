@@ -246,7 +246,7 @@ section{padding-block:clamp(44px,6vw,80px); position:relative}
 .print img{display:block; width:100%; height:auto}
 .prova-foot{padding:13px 18px; font-size:.82rem; color:var(--muted); border-top:1px solid var(--line-soft)}
 
-.depo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px; margin-top:22px}
+.depo-grid{display:grid; grid-template-columns:repeat(var(--colunas,3),1fr); gap:18px; margin-top:22px}
 .depo{background:linear-gradient(170deg,rgba(36,24,64,.72),rgba(22,14,40,.72)); border:1px solid var(--line-soft);
   border-radius:var(--r); padding:24px 22px; display:flex; flex-direction:column; gap:14px; transition:border-color .2s, transform .2s}
 .depo:hover{border-color:var(--line); transform:translateY(-2px)}
@@ -291,7 +291,10 @@ section{padding-block:clamp(44px,6vw,80px); position:relative}
 .tier .old{font-family:"IBM Plex Mono",monospace; font-size:.95rem; color:var(--muted); text-decoration:line-through}
 .tier .new{font-family:"Archivo",sans-serif; font-weight:900; font-size:2.35rem; letter-spacing:-.035em; line-height:1}
 .tier .note{font-size:.87rem; color:var(--muted)}
-.price-foot{margin-top:24px; font-size:.93rem; color:var(--muted); max-width:62ch}
+.price-quote{margin:26px 0 0; padding:18px 22px; border-left:2px solid var(--gold); background:rgba(232,180,74,.06); border-radius:0 8px 8px 0}
+.price-quote blockquote{margin:0; font-family:"Archivo",sans-serif; font-weight:600; font-size:1.06rem; color:var(--white); letter-spacing:-.01em; line-height:1.35}
+.price-quote figcaption{margin-top:9px; font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.price-foot{margin-top:20px; font-size:.93rem; color:var(--muted); max-width:62ch}
 
 /* faq */
 details{border-bottom:1px solid var(--line-soft); padding-block:18px}
@@ -312,7 +315,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
   font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
 
 @media (max-width:940px){
-  .depo-grid{grid-template-columns:1fr}
+  .depo-grid{grid-template-columns:1fr !important}
   .provas{grid-template-columns:1fr}
   .quote-big{grid-template-columns:1fr; gap:4px}
   .hero-grid{grid-template-columns:1fr}
@@ -720,6 +723,11 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
         </div>
       </div>
 
+      <figure class="price-quote">
+        <blockquote>&ldquo;Essa ajuda que ela dá pra nós é além do dinheiro. Ela cobra barato pela qualidade e pela entrega pessoal.&rdquo;</blockquote>
+        <figcaption>Osias · aluno da mentoria</figcaption>
+      </figure>
+
       <p class="price-foot">Valores à vista para a turma de 4 meses (3 do programa + 1 mês de bônus desta turma). O parcelamento em 10x de R$ 116,22 é a condição de tabela da Hotmart, no cartão. As formas de pagamento e o campo de cupom aparecem no checkout.</p>
     </div>
   </div>
@@ -783,6 +791,17 @@ const DEPOIMENTOS = [
     quem:  "Clélia · aluna da mentoria",
     selo:  ""
   }
+  ,
+  {
+    texto: "Não me arrependo de NENHUM segundo de ter feito essa mentoria. Desde o dia em que comecei estou a todo vapor, estudando todos os dias. Na minha escola, eu sou o único que está estudando assim.",
+    quem:  "Osias · aluno da mentoria",
+    selo:  ""
+  },
+  {
+    texto: "A professora vem somando na minha vida desde 2017. Só muita gratidão mesmo — existe coisa que dinheiro não paga.",
+    quem:  "Eva · aluna da mentoria",
+    selo:  ""
+  }
   // ,{ texto: "...", quem: "Nome · turma", selo: "Aprovada · órgão" }
 ];
 
@@ -807,6 +826,9 @@ const CONFIG = {
     if (DEPOIMENTOS.length < 2) {
       grade.remove();
     } else {
+      const n = DEPOIMENTOS.length;
+      const colunas = n % 3 === 0 ? 3 : (n % 2 === 0 ? 2 : 3);
+      grade.style.setProperty("--colunas", colunas);
       grade.innerHTML = DEPOIMENTOS.map(d => `
         <article class="depo">
           <span class="aspas" aria-hidden="true">&ldquo;</span>
