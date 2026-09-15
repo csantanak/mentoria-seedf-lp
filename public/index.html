@@ -102,6 +102,8 @@ a{color:inherit}
   color:var(--gold-light); border:1px solid var(--gold); border-radius:99px; padding:7px 15px;
   background:rgba(232,180,74,.10); margin-top:-8px;
 }
+.badge-2{border-color:rgba(255,255,255,.28); color:var(--white); background:rgba(255,255,255,.05)}
+.badge-2::before{background:var(--magenta); box-shadow:0 0 9px var(--magenta)}
 .badge::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow:0 0 9px var(--gold); flex:none}
 .promise{display:flex; flex-direction:column; gap:7px; border-left:2px solid var(--gold); padding-left:18px}
 .promise p{font-family:"Archivo",sans-serif; font-weight:600; font-size:clamp(1.02rem,2.1vw,1.24rem); color:var(--white); letter-spacing:-.01em}
@@ -423,6 +425,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
     <div class="hero-copy">
       <p class="eyebrow">Preparação estratégica · Professor efetivo SEEDF</p>
       <span class="badge">Turma atual · 4º mês de bônus incluído</span>
+      <span class="badge badge-2">Aluno aprovado na SEEDF Efetivo</span>
       <div class="h1-wrap">
         <p class="h1-kicker">Mentoria</p>
         <h1>Sua vaga não depende<br>de estudar mais.<br><span class="foil">Depende de estudar certo.</span></h1>
@@ -633,10 +636,10 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
     <div class="quote-big">
       <span class="qmark" aria-hidden="true">&ldquo;</span>
       <div>
-        <blockquote>Fui aprovada no concurso da prefeitura de Feira de Santana. Seu projeto de pegar em nossa mão e nos ensinar a psicografar as questões fez toda a diferença nos meus estudos.</blockquote>
+        <blockquote>Não me arrependo de NENHUM segundo de ter feito essa mentoria. Desde o dia em que comecei estou a todo vapor, estudando todos os dias. Na minha escola, eu sou o único que está estudando assim.</blockquote>
         <div class="quote-who">
-          <span class="nome">Cris · aluna da mentoria</span>
-          <span class="selo">Aprovada · Feira de Santana</span>
+          <span class="nome">Osias · aluno da mentoria</span>
+          <span class="selo">Aprovado · SEEDF Efetivo</span>
         </div>
       </div>
     </div>
@@ -645,7 +648,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
 
     <div class="provas">
       <div class="prova">
-        <div class="prova-cap"><span class="k">Depoimento em vídeo</span></div>
+        <div class="prova-cap"><span class="k">Depoimento em vídeo · aprovado na SEEDF</span></div>
         <div class="video-box">
           <div class="video-frame" id="video-frame">
             <button class="player" id="player" type="button" aria-label="Reproduzir o depoimento em vídeo">
@@ -653,13 +656,13 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
                 <span class="play" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="#1B1005"><path d="M8 5v14l11-7z"/></svg>
                 </span>
-                <span class="player-t">Ouça de quem fez a mentoria</span>
+                <span class="player-t">Ouça quem fez a mentoria e passou</span>
                 <span class="player-s">Toque para assistir</span>
               </span>
             </button>
           </div>
         </div>
-        <p class="prova-foot">Depoimento enviado por aluno da professora Jaqueline Santos.</p>
+        <p class="prova-foot">Depoimento de Osias, aprovado na SEEDF Efetivo.</p>
       </div>
 
       <div class="prova">
@@ -725,7 +728,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
 
       <figure class="price-quote">
         <blockquote>&ldquo;Essa ajuda que ela dá pra nós é além do dinheiro. Ela cobra barato pela qualidade e pela entrega pessoal.&rdquo;</blockquote>
-        <figcaption>Osias · aluno da mentoria</figcaption>
+        <figcaption>Osias · aprovado na SEEDF Efetivo</figcaption>
       </figure>
 
       <p class="price-foot">Valores à vista para a turma de 4 meses (3 do programa + 1 mês de bônus desta turma). O parcelamento em 10x de R$ 116,22 é a condição de tabela da Hotmart, no cartão. As formas de pagamento e o campo de cupom aparecem no checkout.</p>
@@ -790,22 +793,15 @@ const DEPOIMENTOS = [
     texto: "Você resgatou algo que eu nem sabia mais o que era: esse acreditar que é possível. Estudar se tornou gostoso, especial — aonde vou, levo minhas apostilas. Se não fosse você, eu não teria visto nem a metade dos conteúdos.",
     quem:  "Clélia · aluna da mentoria",
     selo:  ""
-  }
-  ,
+  },
   {
-    texto: "Não me arrependo de NENHUM segundo de ter feito essa mentoria. Desde o dia em que comecei estou a todo vapor, estudando todos os dias. Na minha escola, eu sou o único que está estudando assim.",
-    quem:  "Osias · aluno da mentoria",
+    texto: "A mentoria me fez ver o quanto sou capaz e desenvolver aquela segurança.",
+    quem:  "Kelly · aluna da mentoria",
     selo:  ""
   },
   {
     texto: "A professora vem somando na minha vida desde 2017. Só muita gratidão mesmo — existe coisa que dinheiro não paga.",
     quem:  "Eva · aluna da mentoria",
-    selo:  ""
-  }
-  ,
-  {
-    texto: "A mentoria me fez ver o quanto sou capaz e desenvolver aquela segurança.",
-    quem:  "Kelly · aluna da mentoria",
     selo:  ""
   }
   // ,{ texto: "...", quem: "Nome · turma", selo: "Aprovada · órgão" }
