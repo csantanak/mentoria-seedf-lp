@@ -246,7 +246,7 @@ section{padding-block:clamp(44px,6vw,80px); position:relative}
 .print img{display:block; width:100%; height:auto}
 .prova-foot{padding:13px 18px; font-size:.82rem; color:var(--muted); border-top:1px solid var(--line-soft)}
 
-.depo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:22px}
+.depo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px; margin-top:22px}
 .depo{background:linear-gradient(170deg,rgba(36,24,64,.72),rgba(22,14,40,.72)); border:1px solid var(--line-soft);
   border-radius:var(--r); padding:24px 22px; display:flex; flex-direction:column; gap:14px; transition:border-color .2s, transform .2s}
 .depo:hover{border-color:var(--line); transform:translateY(-2px)}
@@ -777,6 +777,11 @@ const DEPOIMENTOS = [
     texto: "Fui aprovada no concurso da prefeitura de Feira de Santana. Seu projeto de pegar em nossa mão e nos ensinar a psicografar as questões fez toda a diferença nos meus estudos.",
     quem:  "Cris · aluna da mentoria",
     selo:  "Aprovada · Feira de Santana"
+  },
+  {
+    texto: "Você resgatou algo que eu nem sabia mais o que era: esse acreditar que é possível. Estudar se tornou gostoso, especial — aonde vou, levo minhas apostilas. Se não fosse você, eu não teria visto nem a metade dos conteúdos.",
+    quem:  "Clélia · aluna da mentoria",
+    selo:  ""
   }
   // ,{ texto: "...", quem: "Nome · turma", selo: "Aprovada · órgão" }
 ];
