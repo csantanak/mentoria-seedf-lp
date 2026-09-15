@@ -1,3 +1,5 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ficha do Aprovado SEEDF</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -323,6 +325,72 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
   .incl-item{grid-template-columns:1fr auto; gap:8px 16px}
   .incl-item .k{grid-column:1/-1; padding-top:0}
 }
+/* barra de ação fixa (só no celular) */
+.cta-fixa{display:none}
+@media (max-width:760px){
+  .cta-fixa{
+    display:block; position:fixed; left:0; right:0; bottom:0; z-index:40;
+    background:rgba(16,10,31,.94); backdrop-filter:blur(12px); border-top:1px solid var(--line);
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    transform:translateY(105%); transition:transform .28s ease;
+  }
+  .cta-fixa.on{transform:translateY(0)}
+  .cta-fixa-in{display:flex; align-items:center; justify-content:space-between; gap:14px; max-width:520px; margin:0 auto}
+  .cta-fixa-txt{font-size:.88rem; color:var(--muted); line-height:1.25}
+  .cta-fixa-txt b{color:var(--gold)}
+  .cta-fixa-btn{
+    font-family:"Archivo",sans-serif; font-weight:800; font-size:.94rem; text-decoration:none; color:#1B1005;
+    background:var(--foil); padding:13px 18px; border-radius:8px; white-space:nowrap; flex:none;
+  }
+}
+
+/* ---- leitura no celular: texto maior, menos coisa antes do formulário ---- */
+@media (max-width:760px){
+  body{font-size:17.5px; line-height:1.62; padding-bottom:78px}
+
+  /* o formulário sobe: fica logo depois da promessa, e o texto longo vai para baixo dele */
+  .hero-copy{display:contents}
+  .hero-grid{display:flex; flex-direction:column; gap:20px}
+  .hero .eyebrow{order:1}
+  .badge{order:2; margin-top:0}
+  .h1-wrap{order:3}
+  .promise{order:4}
+  .ficha{order:5}
+  .lede{order:6}
+  .signature{order:7}
+
+  h1{font-size:clamp(2.2rem,8.6vw,2.7rem); line-height:1.04}
+  .h1-kicker{font-size:.92rem; letter-spacing:.34em}
+  .eyebrow{font-size:.74rem; letter-spacing:.14em}
+  .badge{font-size:.72rem; letter-spacing:.08em; padding:9px 16px}
+  .promise p{font-size:1.12rem}
+  .lede{font-size:1.05rem; color:var(--text); max-width:none}
+  .signature{font-size:.78rem; letter-spacing:.14em}
+
+  label{font-size:.76rem; letter-spacing:.1em}
+  input,select{font-size:1.02rem; padding:14px 14px}
+  .ficha-title{font-size:1.24rem}
+  .ficha-sub,.consent{font-size:.95rem}
+  .cta{font-size:1.06rem; padding:17px 18px}
+  .fineprint{font-size:.74rem}
+
+  section{padding-block:40px}
+  .sec-head{margin-bottom:24px; gap:10px}
+  .stat{padding:20px}
+  .stat .v{font-size:1.5rem}
+  .stat .l,.card p,.incl-item p,.step p,.depo p,.prova-foot,.tier .note,.price-foot,.price-intro,details p{font-size:1.02rem}
+  .card q{font-size:1.12rem}
+  .incl-item .k,.step .n,.rk,.tier .who,.prova-cap .k,.depo .quem{font-size:.74rem; letter-spacing:.1em}
+  .incl-item h3,.step h3,summary{font-size:1.08rem}
+  .rv{font-size:1.1rem}
+  .sv{font-size:1.45rem}
+  .quote-big blockquote{font-size:1.24rem}
+  .next-steps li{font-size:.98rem}
+  .coupon .code{font-size:1.6rem}
+  .print{max-height:420px}
+  .foot-grid{font-size:.72rem; letter-spacing:.06em}
+}
+
 @media (max-width:520px){
   .row2{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
@@ -352,7 +420,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
     <div class="hero-copy">
       <p class="eyebrow">Preparação estratégica · Professor efetivo SEEDF</p>
       <span class="badge">Turma atual · 4º mês de bônus incluído</span>
-      <div>
+      <div class="h1-wrap">
         <p class="h1-kicker">Mentoria</p>
         <h1>Sua vaga não depende<br>de estudar mais.<br><span class="foil">Depende de estudar certo.</span></h1>
       </div>
@@ -684,6 +752,13 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
 </section>
 </main>
 
+<div class="cta-fixa" id="cta-fixa" hidden>
+  <div class="cta-fixa-in">
+    <span class="cta-fixa-txt">Cupom de <b>10%</b> na matrícula</span>
+    <a class="cta-fixa-btn" href="#ficha">Pegar meu desconto</a>
+  </div>
+</div>
+
 <footer>
   <div class="wrap foot-grid">
     <span>Vancce · Mentoria SEEDF Efetivo · Prof.ª Jaqueline Santos</span>
@@ -751,6 +826,26 @@ const CONFIG = {
       f.allowFullscreen = true;
       player.replaceWith(f);
     }, { once: true });
+  }
+
+  /* barra de ação aparece depois que o formulário sai da tela */
+  const barra = document.getElementById("cta-fixa");
+  const ficha = document.getElementById("ficha");
+  if (barra && ficha) {
+    barra.hidden = false;
+    let agendado = false;
+    const conferir = () => {
+      agendado = false;
+      const passou = ficha.getBoundingClientRect().bottom < 0;
+      const fim = document.querySelector(".closer");
+      const noFim = fim ? fim.getBoundingClientRect().top < innerHeight : false;
+      barra.classList.toggle("on", passou && !noFim);
+    };
+    addEventListener("scroll", () => {
+      if (!agendado) { agendado = true; requestAnimationFrame(conferir); }
+    }, { passive: true });
+    addEventListener("resize", conferir, { passive: true });
+    conferir();
   }
 
   const form = document.getElementById("lead");
