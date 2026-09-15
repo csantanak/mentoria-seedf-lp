@@ -51,3 +51,9 @@ const CONFIG = {
 
 Se o servidor estiver fora do ar, a tela de sucesso e o WhatsApp continuam
 funcionando — o lead não se perde, só não entra no banco.
+
+## Deploy
+
+O serviço do Railway está conectado a este repositório (branch `main`).
+Todo `git push` para `main` dispara um deploy automático — não é mais
+preciso rodar `railway up` na mão.
