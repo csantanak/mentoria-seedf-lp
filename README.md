@@ -1,11 +1,12 @@
 # Mentoria SEEDF Efetivo — captura de leads
 
-Landing page de captura com cupom de 10% + painel de cadastros.
+Landing page de captura com cupom de 10%, caminho direto para o checkout e painel de cadastros.
 
 - `/`            página pública (a ficha de inscrição)
 - `/api/lead`    recebe o cadastro (POST JSON)
 - `/admin`       painel de leads, protegido por senha
 - `/admin/leads.csv`  exportação para Excel/Sheets
+- `/politica-de-privacidade.html`  política de privacidade e canal para solicitações LGPD
 
 ## Publicar no Railway
 
@@ -45,12 +46,28 @@ const CONFIG = {
 
 ## O que acontece quando alguém preenche a ficha
 
-1. O navegador valida os campos e envia para `/api/lead`.
-2. O servidor grava no Postgres e responde.
+1. O navegador valida nome, WhatsApp, área e consentimento e envia para `/api/lead`.
+2. O servidor evita duplicidade por WhatsApp e grava no Postgres.
 3. A pessoa vê o cupom na tela e um botão que abre o WhatsApp com os dados prontos.
 
-Se o servidor estiver fora do ar, a tela de sucesso e o WhatsApp continuam
-funcionando — o lead não se perde, só não entra no banco.
+Se o servidor estiver fora do ar, a página não informa falsamente que houve
+cadastro: ela mostra o erro e oferece o envio dos dados pelo WhatsApp.
+
+## Rastreamento de conversões
+
+A página já dispara eventos no `dataLayer` e, quando o Meta Pixel estiver
+instalado, também pelo `fbq`:
+
+- `lead_form_start`
+- `lead_submit`
+- `lead_success`
+- `lead_error`
+- `whatsapp_click`
+- `checkout_click`
+
+Os parâmetros UTM são preservados no navegador. Para enviar os eventos às
+plataformas, instale o Google Tag Manager/Google Analytics e o Meta Pixel com
+os identificadores reais da conta — não use IDs de exemplo.
 
 ## Deploy
 

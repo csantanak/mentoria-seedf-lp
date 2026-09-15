@@ -1,6 +1,19 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ficha do Aprovado SEEDF</title>
+<title>Mentoria SEEDF Efetivo | Professora Jaqueline Santos</title>
+<meta name="description" content="Mentoria ao vivo para o concurso da SEEDF: cronograma direcionado, discursivas corrigidas, simulados e acompanhamento com a professora Jaqueline Santos.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://mentoria-seedf-2026-production.up.railway.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Mentoria SEEDF Efetivo | Estude com direção">
+<meta property="og:description" content="Quatro meses de acompanhamento ao vivo, cronograma direcionado e discursivas corrigidas para a SEEDF.">
+<meta property="og:url" content="https://mentoria-seedf-2026-production.up.railway.app/">
+<meta property="og:image" content="https://mentoria-seedf-2026-production.up.railway.app/assets/arte-mentoria.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap">
@@ -110,6 +123,11 @@ a{color:inherit}
 .promise b{font-weight:700; color:var(--gold)}
 .signature{font-family:"IBM Plex Mono",monospace; font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); display:flex; align-items:center; gap:14px}
 .signature::before{content:""; width:42px; height:1px; background:var(--gold); flex:none}
+.hero-actions{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.hero-actions .cta{width:auto; padding-inline:24px; text-decoration:none; display:inline-block}
+.text-link{font-family:"Archivo",sans-serif; font-weight:700; color:var(--gold-light); text-underline-offset:4px}
+.authority-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:2px}
+.authority-list span{font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.06em; color:var(--gold-light); border:1px solid var(--line); border-radius:99px; padding:7px 11px; background:rgba(232,180,74,.07)}
 
 /* ===== ficha ===== */
 .ficha{
@@ -158,6 +176,10 @@ input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,su
 .cta:hover{filter:brightness(1.08); box-shadow:0 16px 36px -14px rgba(232,180,74,.8)}
 .cta:active{transform:translateY(1px)}
 .fineprint{font-family:"IBM Plex Mono",monospace; font-size:.64rem; line-height:1.6; color:var(--muted); letter-spacing:.04em; text-align:center}
+.form-error{display:none; color:var(--err); background:rgba(255,142,134,.08); border:1px solid rgba(255,142,134,.35); border-radius:8px; padding:11px 12px; font-size:.86rem; line-height:1.45}
+.form-error.on{display:block}
+.privacy-link{color:var(--gold-light); text-underline-offset:3px}
+.buy-now{display:inline-block; margin-top:22px; width:auto; text-decoration:none; padding-inline:30px}
 
 .done{padding:24px; display:none; flex-direction:column; gap:17px}
 .done.on{display:flex}
@@ -360,9 +382,10 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
   .badge{order:2; margin-top:0}
   .h1-wrap{order:3}
   .promise{order:4}
-  .ficha{order:5}
-  .lede{order:6}
-  .signature{order:7}
+  .hero-actions{order:5}
+  .ficha{order:6}
+  .lede{order:7}
+  .signature{order:8}
 
   h1{font-size:clamp(2.2rem,8.6vw,2.7rem); line-height:1.04}
   .h1-kicker{font-size:.92rem; letter-spacing:.34em}
@@ -403,6 +426,8 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
   .top-note{display:none}
 }
 </style>
+</head>
+<body>
 
 <header class="topbar">
   <div class="wrap">
@@ -412,7 +437,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
     </div>
     <div class="top-r">
       <span class="top-note">Mentoria SEEDF Efetivo · 4 meses</span>
-      <a class="top-cta" href="#ficha">Pegar meus 10%</a>
+      <a class="top-cta js-checkout" href="https://go.hotmart.com/I107610411Q?dp=1" target="_blank" rel="noopener">Entrar na mentoria</a>
     </div>
   </div>
 </header>
@@ -423,7 +448,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
   <span class="corner tl"></span><span class="corner tl2"></span>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Preparação estratégica · Professor efetivo SEEDF</p>
+      <p class="eyebrow">Preparação estratégica · Professora efetiva da SEEDF</p>
       <span class="badge">Turma atual · 4º mês de bônus incluído</span>
       <span class="badge badge-2">Aluno aprovado na SEEDF Efetivo</span>
       <div class="h1-wrap">
@@ -435,6 +460,10 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
         <p>Método para <b>avançar</b>.</p>
         <p>Acompanhamento para <b>evoluir</b>.</p>
       </div>
+      <div class="hero-actions">
+        <a class="cta" href="#ficha">Quero garantir 10% de desconto</a>
+        <a class="text-link js-checkout" href="https://go.hotmart.com/I107610411Q?dp=1" target="_blank" rel="noopener">Já decidi: quero entrar agora</a>
+      </div>
       <p class="lede">Quatro meses de mentoria ao vivo com a professora Jaqueline Santos — três do programa mais o mês de bônus desta turma: cronograma pronto desde o primeiro dia, discursiva corrigida com nota por critério e revisão do cronograma em até 48h assim que o edital sair. Preencha a ficha e garanta <b style="color:var(--gold)">10% de desconto</b> na matrícula.</p>
       <p class="signature">Professora Jaqueline Santos</p>
     </div>
@@ -445,9 +474,8 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
         <p class="ficha-title">Garanta seus 10% de desconto</p>
         <p class="ficha-sub">Menos de 1 minuto. O cupom aparece na hora.</p>
         <div class="ticks" aria-hidden="true">
-          <span class="tick"></span><span class="tick"></span><span class="tick"></span>
-          <span class="tick"></span><span class="tick"></span><span class="tick"></span>
-          <span class="ticktxt" id="ticktxt">0 de 6</span>
+          <span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span>
+          <span class="ticktxt" id="ticktxt">0 de 4</span>
         </div>
       </div>
 
@@ -458,17 +486,10 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
           <span class="err-msg">Escreva seu nome completo.</span>
         </div>
 
-        <div class="row2">
-          <div class="field" id="f-whats">
-            <label for="whats">WhatsApp com DDD</label>
-            <input id="whats" name="whats" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(61) 90000-0000">
-            <span class="err-msg">Informe DDD + número.</span>
-          </div>
-          <div class="field" id="f-email">
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com">
-            <span class="err-msg">Confira o e-mail digitado.</span>
-          </div>
+        <div class="field" id="f-whats">
+          <label for="whats">WhatsApp com DDD</label>
+          <input id="whats" name="whats" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(61) 90000-0000">
+          <span class="err-msg">Informe DDD + número.</span>
         </div>
 
         <div class="field" id="f-area">
@@ -491,25 +512,15 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
           <span class="err-msg">Escolha uma área.</span>
         </div>
 
-        <div class="field" id="f-momento">
-          <label for="momento">Em que ponto você está hoje</label>
-          <select id="momento" name="momento">
-            <option value="">Selecione seu momento</option>
-            <option>Nunca prestei um concurso da SEEDF</option>
-            <option>Já prestei e não passei</option>
-            <option>Passei, mas fiquei fora das vagas</option>
-            <option>Estudo há mais de 1 ano e não evoluo</option>
-            <option>Trabalho o dia todo e estudo no que sobra</option>
-            <option>Sou ex-aluno(a) da professora Jaqueline</option>
-          </select>
-          <span class="err-msg">Escolha a opção que mais combina com você.</span>
-        </div>
-
         <label class="consent" id="f-lgpd" for="lgpd">
           <input id="lgpd" name="lgpd" type="checkbox">
-          <span>Autorizo o contato por WhatsApp e e-mail sobre a mentoria e o uso dos meus dados conforme a LGPD. Posso pedir a exclusão quando quiser.</span>
+          <span>Autorizo o contato por WhatsApp sobre a mentoria e o uso dos meus dados conforme a LGPD. Consulte a <a class="privacy-link" href="/politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.</span>
         </label>
 
+        <div class="form-error" id="form-error" role="alert">
+          <span id="form-error-text"></span>
+          <a class="privacy-link" id="form-whatsapp" href="#" target="_blank" rel="noopener">Enviar meus dados pelo WhatsApp</a>
+        </div>
         <button class="cta" type="submit">Quero meus 10% de desconto</button>
         <p class="fineprint">Sem spam. Seus dados vão direto para a equipe da mentoria.</p>
       </form>
@@ -619,6 +630,12 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
     <div style="display:flex; flex-direction:column; gap:16px">
       <p class="eyebrow">Quem conduz</p>
       <h2>Professora Jaqueline Santos</h2>
+      <div class="authority-list" aria-label="Credenciais da professora">
+        <span>Professora efetiva da SEEDF</span>
+        <span>7 aprovações em concursos</span>
+        <span>10º lugar · Regional de Ceilândia</span>
+        <span>8 anos como professora temporária</span>
+      </div>
       <p class="lede">A mentoria não é um curso gravado que você assiste sozinho. São dois encontros por semana com a professora olhando o seu cronograma, corrigindo a sua discursiva e dizendo, com nome e sobrenome, o que você precisa ajustar até a próxima sessão.</p>
       <p class="lede">É esse acompanhamento que separa quem estuda muito de quem estuda na direção certa. Nesta turma são <b style="color:var(--gold)">quatro meses</b> dele — três do programa e um de bônus.</p>
       <a class="top-cta" href="#ficha" style="align-self:flex-start; padding:12px 22px; font-size:.9rem">Quero entrar na turma com 10% off</a>
@@ -732,6 +749,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
       </figure>
 
       <p class="price-foot">Valores à vista para a turma de 4 meses (3 do programa + 1 mês de bônus desta turma). O parcelamento em 10x de R$ 116,22 é a condição de tabela da Hotmart, no cartão. As formas de pagamento e o campo de cupom aparecem no checkout.</p>
+      <a class="cta buy-now js-checkout" href="https://go.hotmart.com/I107610411Q?dp=1" target="_blank" rel="noopener">Quero entrar na mentoria agora</a>
     </div>
   </div>
 </section>
@@ -747,7 +765,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
     <details><summary>Trabalho em sala o dia inteiro. Vou dar conta?</summary><p>O programa foi pensado também para quem estuda no tempo que sobra. O cronograma é dimensionado para a sua realidade de horas, e os encontros ficam disponíveis para quem não puder estar ao vivo.</p></details>
     <details><summary>A mentoria é de 3 ou de 4 meses?</summary><p>O programa tem 3 meses. Quem entra nesta turma recebe o 4º mês como bônus, pelo mesmo investimento: são oito encontros a mais, com as mesmas correções e o mesmo acompanhamento.</p></details>
     <details><summary>Como uso o cupom de 10%?</summary><p>Ao enviar a ficha, o código aparece na tela e segue no seu WhatsApp. Basta colá-lo no campo de cupom de desconto dentro do checkout da Hotmart antes de finalizar a matrícula.</p></details>
-    <details><summary>E os meus dados?</summary><p>São usados apenas para o contato sobre a mentoria, conforme a LGPD. A qualquer momento você pode pedir a exclusão pelo mesmo WhatsApp.</p></details>
+    <details><summary>E os meus dados?</summary><p>São usados apenas para o contato sobre a mentoria, conforme a LGPD. A qualquer momento você pode pedir a exclusão pelo mesmo WhatsApp. Leia a <a class="privacy-link" href="/politica-de-privacidade.html" target="_blank">Política de Privacidade completa</a>.</p></details>
   </div>
 </section>
 
@@ -773,7 +791,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
 <footer>
   <div class="wrap foot-grid">
     <span>Vancce · Mentoria SEEDF Efetivo · Prof.ª Jaqueline Santos</span>
-    <span>Dados tratados conforme a LGPD</span>
+    <a class="privacy-link" href="/politica-de-privacidade.html">Política de Privacidade</a>
   </div>
 </footer>
 
@@ -785,7 +803,7 @@ footer{border-top:1px solid var(--line-soft); padding-block:28px; background:var
    palavras REAIS de alunos — nunca invente. Some da página se a lista ficar vazia. */
 const DEPOIMENTOS = [
   {
-    texto: "Fui aprovada no concurso da prefeitura de Feira de Santana. Seu projeto de pegar em nossa mão e nos ensinar a psicografar as questões fez toda a diferença nos meus estudos.",
+    texto: "Fui aprovada no concurso da prefeitura de Feira de Santana. Seu projeto de pegar em nossa mão e nos ensinar a interpretar as questões fez toda a diferença nos meus estudos.",
     quem:  "Cris · aluna da mentoria",
     selo:  "Aprovada · Feira de Santana"
   },
@@ -815,6 +833,23 @@ const CONFIG = {
 /* =================================================================== */
 
 (function () {
+  const track = (event, data = {}) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event, ...data });
+    if (typeof window.fbq === "function") window.fbq("trackCustom", event, data);
+  };
+  const params = new URLSearchParams(location.search);
+  const attribution = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]
+    .reduce((acc, key) => {
+      const value = params.get(key);
+      if (value) acc[key] = value.slice(0, 100);
+      return acc;
+    }, {});
+  try {
+    if (Object.keys(attribution).length) localStorage.setItem("utm_seedf", JSON.stringify(attribution));
+    else Object.assign(attribution, JSON.parse(localStorage.getItem("utm_seedf") || "{}"));
+  } catch (_) {}
+
   /* arte: some com a seção inteira se o arquivo não estiver lá */
   const prof = document.getElementById("prof-img");
   prof.addEventListener("error", () => {
@@ -879,13 +914,23 @@ const CONFIG = {
 
   const form = document.getElementById("lead");
   const done = document.getElementById("done");
+  const formError = document.getElementById("form-error");
+  const formErrorText = document.getElementById("form-error-text");
+  const formWhatsapp = document.getElementById("form-whatsapp");
   const ticktxt = document.getElementById("ticktxt");
   const ticks = [...document.querySelectorAll(".tick")];
-  const ids = ["nome", "whats", "email", "area", "momento", "lgpd"];
+  const ids = ["nome", "whats", "area", "lgpd"];
   const el = id => document.getElementById(id);
 
   document.getElementById("code").textContent = CONFIG.cupom;
   document.getElementById("buy").href = CONFIG.checkout;
+  document.querySelectorAll(".js-checkout").forEach(link => {
+    link.href = CONFIG.checkout;
+    link.addEventListener("click", () => track("checkout_click", { position: link.textContent.trim(), ...attribution }));
+  });
+  document.getElementById("buy").addEventListener("click", () => track("checkout_click", { position: "success", ...attribution }));
+  document.getElementById("wa").addEventListener("click", () => track("whatsapp_click", { position: "success", ...attribution }));
+  formWhatsapp.addEventListener("click", () => track("whatsapp_click", { position: "form_error", ...attribution }));
 
   const digits = s => s.replace(/\D/g, "");
   const maskPhone = v => {
@@ -900,9 +945,7 @@ const CONFIG = {
   const valid = {
     nome: () => el("nome").value.trim().split(/\s+/).filter(Boolean).length >= 2,
     whats: () => digits(el("whats").value).length >= 10,
-    email: () => /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(el("email").value.trim()),
     area: () => el("area").value !== "",
-    momento: () => el("momento").value !== "",
     lgpd: () => el("lgpd").checked
   };
 
@@ -913,12 +956,15 @@ const CONFIG = {
       if (ok) n++;
       ticks[i].classList.toggle("on", ok);
     });
-    ticktxt.textContent = n + " de 6";
+    ticktxt.textContent = n + " de 4";
   }
+  let started = false;
   ids.forEach(id => {
     el(id).addEventListener("input", () => {
+      if (!started) { started = true; track("lead_form_start", attribution); }
       paint();
       document.getElementById("f-" + id).classList.remove("bad");
+      formError.classList.remove("on");
     });
     el(id).addEventListener("change", paint);
   });
@@ -940,17 +986,19 @@ const CONFIG = {
     const lead = {
       nome: el("nome").value.trim(),
       whatsapp: el("whats").value.trim(),
-      email: el("email").value.trim(),
+      email: "",
       area: el("area").value,
-      momento: el("momento").value,
+      momento: "",
       cupom: CONFIG.cupom,
       enviadoEm: new Date().toLocaleString("pt-BR")
     };
     try { localStorage.setItem("lead_seedf", JSON.stringify(lead)); } catch (_) {}
 
-    /* grava no servidor; se falhar, o cadastro ainda segue pelo WhatsApp */
+    /* grava no servidor; em caso de falha, oferece o WhatsApp sem afirmar que houve cadastro */
     botao.disabled = true;
     botao.textContent = "Registrando sua ficha...";
+    formError.classList.remove("on");
+    track("lead_submit", { area: lead.area, ...attribution });
     try {
       const r = await fetch("/api/lead", {
         method: "POST",
@@ -959,15 +1007,18 @@ const CONFIG = {
       });
       if (!r.ok) {
         const { erro } = await r.json().catch(() => ({}));
-        if (r.status === 400 && erro) {
-          botao.disabled = false;
-          botao.textContent = textoBotao;
-          alert(erro);
-          return;
-        }
+        throw new Error(erro || "Não foi possível registrar sua ficha agora.");
       }
-    } catch (_) {
-      /* página aberta fora do servidor (preview): segue para o WhatsApp */
+    } catch (error) {
+      botao.disabled = false;
+      botao.textContent = textoBotao;
+      formErrorText.textContent = error.message + " ";
+      const fallbackMsg = "Olá! Não consegui concluir a ficha da Mentoria SEEDF. Meu nome é " + lead.nome +
+        ", meu WhatsApp é " + lead.whatsapp + " e minha área é " + lead.area + ".";
+      formWhatsapp.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(fallbackMsg);
+      formError.classList.add("on");
+      track("lead_error", { message: error.message, ...attribution });
+      return;
     }
     botao.disabled = false;
     botao.textContent = textoBotao;
@@ -976,9 +1027,7 @@ const CONFIG = {
       "Olá! Acabei de preencher a ficha da Mentoria SEEDF Efetivo e quero garantir os 10% de desconto.\n\n" +
       "Nome: " + lead.nome + "\n" +
       "WhatsApp: " + lead.whatsapp + "\n" +
-      "E-mail: " + lead.email + "\n" +
       "Área: " + lead.area + "\n" +
-      "Momento: " + lead.momento + "\n" +
       "Cupom: " + lead.cupom;
 
     const wa = document.getElementById("wa");
@@ -999,6 +1048,7 @@ const CONFIG = {
       lead.nome.split(" ")[0] + ", seu desconto está reservado.";
     form.classList.add("off");
     done.classList.add("on");
+    track("lead_success", { area: lead.area, ...attribution });
     done.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
@@ -1009,3 +1059,5 @@ const CONFIG = {
   });
 })();
 </script>
+</body>
+</html>

@@ -2,6 +2,7 @@ import express from "express";
 import pg from "pg";
 import fs from "node:fs/promises";
 import path from "node:path";
+import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -11,6 +12,17 @@ const ADMIN_PASS = process.env.ADMIN_PASS || "";
 
 const app = express();
 app.set("trust proxy", 1);
+app.disable("x-powered-by");
+app.use((req, res, next) => {
+  res.set({
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+  });
+  if (req.path.startsWith("/admin") || req.path.startsWith("/api/")) res.set("Cache-Control", "no-store");
+  next();
+});
 app.use(express.json({ limit: "16kb" }));
 app.use(express.static(path.join(__dirname, "public"), { maxAge: "1h" }));
 
@@ -48,7 +60,19 @@ async function initStore() {
 }
 
 async function salvarLead(l) {
+  const telefone = l.whatsapp.replace(/\D/g, "");
   if (pool) {
+    const parametros = [telefone];
+    let busca = `regexp_replace(whatsapp, '[^0-9]', '', 'g') = $1`;
+    if (l.email) {
+      parametros.push(l.email);
+      busca += ` OR lower(email) = $2`;
+    }
+    const existente = await pool.query(
+      `SELECT id, criado_em FROM leads WHERE ${busca} ORDER BY criado_em DESC LIMIT 1`,
+      parametros
+    );
+    if (existente.rows[0]) return { ...existente.rows[0], duplicado: true };
     const { rows } = await pool.query(
       `INSERT INTO leads (nome, whatsapp, email, area, momento, cupom, origem)
        VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING id, criado_em`,
@@ -57,6 +81,12 @@ async function salvarLead(l) {
     return rows[0];
   }
   const todos = JSON.parse(await fs.readFile(FILE_DB, "utf8"));
+  const existente = todos.find(item => {
+    const mesmoTelefone = String(item.whatsapp || "").replace(/\D/g, "") === telefone;
+    const mesmoEmail = l.email && String(item.email || "").toLowerCase() === l.email;
+    return mesmoTelefone || mesmoEmail;
+  });
+  if (existente) return { id: existente.id, criado_em: existente.criado_em, duplicado: true };
   const novo = { id: todos.length + 1, ...l, criado_em: new Date().toISOString() };
   todos.push(novo);
   await fs.writeFile(FILE_DB, JSON.stringify(todos, null, 2));
@@ -98,7 +128,7 @@ app.post("/api/lead", async (req, res) => {
       email: texto(req.body.email, 160).toLowerCase(),
       area: texto(req.body.area, 80),
       momento: texto(req.body.momento, 120),
-      cupom: texto(req.body.cupom, 40) || "SEEDF10",
+      cupom: "SEEDF10",
       origem: texto(req.body.origem, 200)
     };
     const digitos = lead.whatsapp.replace(/\D/g, "");
@@ -106,12 +136,12 @@ app.post("/api/lead", async (req, res) => {
       return res.status(400).json({ erro: "Escreva o nome completo." });
     if (digitos.length < 10)
       return res.status(400).json({ erro: "Informe o WhatsApp com DDD." });
-    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(lead.email))
+    if (lead.email && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(lead.email))
       return res.status(400).json({ erro: "Confira o e-mail digitado." });
 
     const salvo = await salvarLead(lead);
-    console.log(`lead #${salvo.id} — ${lead.nome} — ${lead.area}`);
-    res.json({ ok: true, id: salvo.id, cupom: lead.cupom });
+    console.log(`lead #${salvo.id}${salvo.duplicado ? " (já cadastrado)" : ""} — ${lead.nome} — ${lead.area}`);
+    res.json({ ok: true, id: salvo.id, cupom: lead.cupom, duplicado: Boolean(salvo.duplicado) });
   } catch (e) {
     console.error("falha ao salvar lead:", e);
     res.status(500).json({ erro: "Não foi possível salvar agora. Envie seus dados pelo WhatsApp." });
@@ -128,8 +158,16 @@ function protegido(req, res, next) {
   const header = req.headers.authorization || "";
   const [tipo, valor] = header.split(" ");
   if (tipo === "Basic" && valor) {
-    const [u, p] = Buffer.from(valor, "base64").toString("utf8").split(":");
-    if (u === ADMIN_USER && p === ADMIN_PASS) return next();
+    const credencial = Buffer.from(valor, "base64").toString("utf8");
+    const separador = credencial.indexOf(":");
+    const u = separador >= 0 ? credencial.slice(0, separador) : "";
+    const p = separador >= 0 ? credencial.slice(separador + 1) : "";
+    const igual = (a, b) => {
+      const aa = Buffer.from(a);
+      const bb = Buffer.from(b);
+      return aa.length === bb.length && crypto.timingSafeEqual(aa, bb);
+    };
+    if (igual(u, ADMIN_USER) && igual(p, ADMIN_PASS)) return next();
   }
   res.set("WWW-Authenticate", 'Basic realm="Painel de leads"').status(401).send("Acesso restrito.");
 }
@@ -140,6 +178,7 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
 const dataBR = d => new Date(d).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
 
 app.get("/admin", protegido, async (req, res) => {
+  try {
   const leads = await listarLeads();
   const hoje = new Date().toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" });
   const deHoje = leads.filter(l => new Date(l.criado_em).toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" }) === hoje).length;
@@ -154,7 +193,7 @@ app.get("/admin", protegido, async (req, res) => {
       <td class="mono dim">${esc(dataBR(l.criado_em))}</td>
       <td><strong>${esc(l.nome)}</strong></td>
       <td class="mono">${wa ? `<a href="${wa}" target="_blank" rel="noopener">${esc(l.whatsapp)}</a>` : esc(l.whatsapp)}</td>
-      <td class="mono dim"><a href="mailto:${esc(l.email)}">${esc(l.email)}</a></td>
+      <td class="mono dim">${l.email ? `<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>` : "—"}</td>
       <td>${esc(l.area)}</td>
       <td class="dim">${esc(l.momento)}</td>
     </tr>`;
@@ -218,18 +257,31 @@ b&&b.addEventListener('input',()=>{const q=b.value.toLowerCase();
   [...c.rows].forEach(r=>{r.style.display=r.innerText.toLowerCase().includes(q)?'':'none'});});
 </script>
 </body></html>`);
+  } catch (e) {
+    console.error("falha ao abrir painel:", e);
+    res.status(500).send("Não foi possível carregar o painel agora.");
+  }
 });
 
 app.get("/admin/leads.csv", protegido, async (req, res) => {
+  try {
   const leads = await listarLeads();
-  const campo = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const campo = v => {
+    let valor = String(v ?? "");
+    if (/^[=+\-@\t\r]/.test(valor)) valor = `'${valor}`;
+    return `"${valor.replace(/"/g, '""')}"`;
+  };
   const linhas = [
-    ["id", "data", "nome", "whatsapp", "email", "area", "momento", "cupom"].join(";"),
-    ...leads.map(l => [l.id, dataBR(l.criado_em), l.nome, l.whatsapp, l.email, l.area, l.momento, l.cupom].map(campo).join(";"))
+    ["id", "data", "nome", "whatsapp", "email", "area", "momento", "cupom", "origem"].join(";"),
+    ...leads.map(l => [l.id, dataBR(l.criado_em), l.nome, l.whatsapp, l.email, l.area, l.momento, l.cupom, l.origem].map(campo).join(";"))
   ];
   res.set("Content-Type", "text/csv; charset=utf-8");
   res.set("Content-Disposition", `attachment; filename="leads-mentoria-seedf-${new Date().toISOString().slice(0, 10)}.csv"`);
   res.send("﻿" + linhas.join("\n"));   // BOM para o Excel abrir com acentos
+  } catch (e) {
+    console.error("falha ao exportar leads:", e);
+    res.status(500).send("Não foi possível gerar o arquivo agora.");
+  }
 });
 
 app.get("/health", (_, res) => res.json({ ok: true }));
