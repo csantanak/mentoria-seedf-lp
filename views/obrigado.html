@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#100A1F">
+<meta name="robots" content="noindex,nofollow">
+<title>Inscrição confirmada · Semana Rumo à SEEDF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1122051733256103');
+fbq('track', 'PageView');
+</script>
+<style>
+:root{--night:#100A1F;--panel:#1D1334;--panel-2:#251942;--line:rgba(232,180,74,.18);--line-soft:rgba(255,255,255,.09);--text:#EDE7F7;--muted:#B0A3C9;--gold:#E8B44A;--gold-light:#F9E7B4;--foil:linear-gradient(176deg,#FBEFC8 0%,#E8B44A 38%,#B9832C 66%,#F4DCA0 100%);--grad-v:linear-gradient(135deg,#E0218A 0%,#8B3BE8 100%);--ok:#59D9A0;--zap:#25D366}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--night);color:var(--text);font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.glow{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.glow.a{width:560px;height:560px;top:-260px;right:-200px;background:rgba(224,33,138,.26)}
+.glow.b{width:440px;height:440px;bottom:-220px;left:-200px;background:rgba(139,59,232,.2)}
+.wrap{position:relative;z-index:1;max-width:620px;margin:0 auto;padding:28px 18px 60px}
+h1,h2{font-family:Archivo,sans-serif;color:#fff;margin:0;text-wrap:balance}
+p{margin:0}
+.foil{background:var(--foil);-webkit-background-clip:text;background-clip:text;color:var(--gold);-webkit-text-fill-color:transparent}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.ok{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+.ok .check{width:48px;height:48px;border-radius:50%;background:rgba(89,217,160,.14);border:2px solid var(--ok);display:grid;place-items:center;flex:none;animation:pop .5s ease}
+.ok .check svg{width:24px;height:24px;color:var(--ok)}
+@keyframes pop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+h1{font-size:clamp(1.55rem,5vw,2rem);line-height:1.1;letter-spacing:-.02em}
+.lembrete{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 26px}
+.lembrete div{background:rgba(255,255,255,.04);border:1px solid var(--line-soft);border-radius:12px;padding:10px;text-align:center}
+.lembrete b{display:block;font-family:Archivo,sans-serif;color:#fff;font-size:1rem}
+.lembrete span{font-size:.74rem;color:var(--muted)}
+.passo{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--muted);margin-bottom:12px}
+.passo b{color:#fff}
+.passo .n{width:24px;height:24px;border-radius:50%;background:var(--grad-v);color:#fff;font-family:Archivo,sans-serif;font-weight:800;font-size:.8rem;display:grid;place-items:center;flex:none}
+.card{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,28px);box-shadow:0 30px 70px -30px rgba(0,0,0,.8)}
+.prog{display:flex;justify-content:space-between;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.barra{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:22px}
+.barra i{display:block;height:100%;width:0;background:var(--foil);border-radius:99px;transition:width .4s ease}
+.pergunta{animation:entra .35s ease}
+@keyframes entra{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.pergunta h2{font-size:clamp(1.2rem,4vw,1.45rem);line-height:1.2;margin-bottom:16px}
+.ops{display:flex;flex-direction:column;gap:9px}
+.op{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:12px;width:100%;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 15px;font-size:.98rem;color:var(--text);line-height:1.3;transition:all .15s}
+.op:hover{border-color:var(--gold);background:rgba(232,180,74,.07)}
+.op:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.op .l{width:28px;height:28px;border-radius:8px;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-family:"IBM Plex Mono",monospace;font-size:.78rem;font-weight:600;color:var(--muted);flex:none}
+.op.sel{border-color:var(--gold);background:rgba(232,180,74,.14);color:#fff}
+.op.sel .l{background:var(--gold);color:#1B1005;border-color:var(--gold)}
+.voltar{all:unset;cursor:pointer;margin-top:14px;font-size:.84rem;color:var(--muted)}
+.voltar:hover{color:#fff}
+.fim{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;animation:entra .4s ease}
+.fim .zap-ic{width:66px;height:66px;border-radius:50%;background:rgba(37,211,102,.14);display:grid;place-items:center}
+.fim .zap-ic svg{width:34px;height:34px}
+.btn-zap{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font-family:Archivo,sans-serif;font-weight:800;font-size:1.08rem;color:#062b14;background:var(--zap);text-decoration:none;border-radius:12px;padding:17px 20px;box-shadow:0 12px 30px -12px rgba(37,211,102,.7);animation:chama 2.2s ease-in-out infinite}
+.btn-zap svg{width:22px;height:22px}
+@keyframes chama{50%{transform:scale(1.025)}}
+.pular{display:block;text-align:center;margin-top:18px;font-size:.84rem;color:var(--muted)}
+.pular a{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="glow a"></div><div class="glow b"></div>
+<main class="wrap">
+  <div class="ok">
+    <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg></span>
+    <div>
+      <p class="eyebrow">Inscrição confirmada</p>
+      <h1 id="titulo">Sua vaga está garantida!</h1>
+    </div>
+  </div>
+
+  <div class="lembrete">
+    <div><b>20/10</b><span>1ª aula</span></div>
+    <div><b>Terças</b><span>às 10h</span></div>
+    <div><b>Ao vivo</b><span>no YouTube</span></div>
+  </div>
+
+  <p class="passo"><span class="n">1</span><span><b>Responda a 10 perguntas rápidas</b> (1 minuto) para a Jaqueline preparar as aulas para você.</span></p>
+  <p class="passo"><span class="n">2</span><span><b>Entre no grupo do WhatsApp</b>: é lá que chegam os links das aulas.</span></p>
+
+  <div class="card" id="card" aria-live="polite"></div>
+
+  <p class="pular" id="pular">Prefere entrar no grupo agora? <a href="#" id="link-pular">Entrar sem responder</a></p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var APPS_SCRIPT_URL = "{{APPS_SCRIPT_URL}}";
+  var GRUPO = "https://chat.whatsapp.com/IfsqoEnIpKK67aMM9f7NmM";
+
+  /* ===================================================================
+     PESQUISA · pontos por resposta (lead scoring)
+     Classes: S >= 90 · A 60–89 · B 30–59 · C < 30   (máximo 125)
+     =================================================================== */
+  var PERGUNTAS = [
+    { id: "conhece", t: "Você já conhecia a Professora Jaqueline?", o: [
+      ["Já fui aluno(a) dela", 15], ["Acompanho no Instagram ou YouTube", 10], ["Conheci agora", 0]] },
+    { id: "tempo_estudo", t: "Há quanto tempo você estuda para a SEEDF?", o: [
+      ["Mais de 1 ano", 10], ["De 6 meses a 1 ano", 10], ["Menos de 6 meses", 5], ["Ainda não comecei", 0]] },
+    { id: "ja_fez", t: "Você já fez prova da SEEDF?", o: [
+      ["Sim, passei mas não fui nomeado(a)", 10], ["Sim, mas não passei", 10], ["Não, vai ser a primeira vez", 5]] },
+    { id: "investiu", t: "Você já investiu em curso ou mentoria para concurso?", o: [
+      ["Sim, mais de uma vez", 15], ["Sim, uma vez", 10], ["Nunca", 0]] },
+    { id: "investir_mes", t: "Quanto você estaria disposto(a) a investir por mês na sua preparação?", o: [
+      ["Mais de R$ 300", 20], ["De R$ 100 a R$ 300", 15], ["Até R$ 100", 0], ["Só uso conteúdo gratuito", -20]] },
+    { id: "renda", t: "Qual é a sua renda mensal?", o: [
+      ["Acima de R$ 6.000", 15], ["De R$ 3.000 a R$ 6.000", 10], ["De R$ 1.500 a R$ 3.000", 0], ["Até R$ 1.500", -10]] },
+    { id: "trabalha", t: "Você trabalha hoje?", o: [
+      ["Sim, na educação", 10], ["Sim, em outra área", 5], ["Não estou trabalhando", -5]] },
+    { id: "horas_semana", t: "Quantas horas por semana você consegue estudar?", o: [
+      ["Mais de 20h", 10], ["De 10 a 20h", 10], ["De 5 a 10h", 5], ["Menos de 5h", 0]] },
+    { id: "trava", t: "O que mais te trava hoje?", o: [
+      ["Manter a constância", 10], ["Saber o que estudar", 10], ["Discursiva", 5], ["Conteúdo pedagógico", 5], ["Falta de tempo", 0]] },
+    { id: "idade", t: "Qual é a sua idade?", o: [
+      ["18 a 24 anos", 0], ["25 a 34 anos", 5], ["35 a 44 anos", 10], ["45 anos ou mais", 10]] }
+  ];
+  var classe = function (p) { return p >= 90 ? "S" : p >= 60 ? "A" : p >= 30 ? "B" : "C"; };
+
+  var q = new URLSearchParams(location.search);
+  var email = (q.get("email") || "").toLowerCase();
+  try { if (!email) email = localStorage.getItem("srs_email") || ""; } catch (_) {}
+  try { var nome = localStorage.getItem("srs_nome"); if (nome) document.getElementById("titulo").textContent = nome + ", sua vaga está garantida!"; } catch (_) {}
+
+  var respostas = [];   /* índice da opção escolhida em cada pergunta */
+  var atual = 0;
+  var card = document.getElementById("card");
+
+  function soma(ate) {
+    var s = 0;
+    for (var i = 0; i < ate; i++) if (respostas[i] != null) s += PERGUNTAS[i].o[respostas[i]][1];
+    return s;
+  }
+
+  function enviar(i) {
+    var p = PERGUNTAS[i];
+    var pts = soma(i + 1);
+    var dados = { tipo: "pesquisa", email: email, pontos: String(pts), classe: classe(pts) };
+    dados[p.id] = p.o[respostas[i]][0];
+    if (APPS_SCRIPT_URL) fetch(APPS_SCRIPT_URL, { method: "POST", mode: "no-cors", body: new URLSearchParams(dados), keepalive: true }).catch(function () {});
+    fetch("/api/captura", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dados), keepalive: true }).catch(function () {});
+  }
+
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+
+  function render() {
+    if (atual >= PERGUNTAS.length) return fim();
+    var p = PERGUNTAS[atual];
+    var pct = Math.round(atual / PERGUNTAS.length * 100);
+    card.innerHTML =
+      '<div class="prog"><span>Pergunta ' + (atual + 1) + ' de ' + PERGUNTAS.length + '</span><span>' + pct + '%</span></div>' +
+      '<div class="barra"><i style="width:' + pct + '%"></i></div>' +
+      '<div class="pergunta"><h2>' + esc(p.t) + '</h2><div class="ops">' +
+      p.o.map(function (o, i) {
+        return '<button class="op' + (respostas[atual] === i ? " sel" : "") + '" data-i="' + i + '"><span class="l">' + "ABCDE"[i] + '</span>' + esc(o[0]) + '</button>';
+      }).join("") + '</div>' +
+      (atual > 0 ? '<button class="voltar" id="voltar">← Voltar</button>' : "") + '</div>';
+    card.querySelectorAll(".op").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (card.dataset.ocupado) return; card.dataset.ocupado = "1";
+        b.classList.add("sel");
+        respostas[atual] = +b.dataset.i;
+        enviar(atual);
+        setTimeout(function () { delete card.dataset.ocupado; atual++; render(); }, 260);
+      });
+    });
+    var v = document.getElementById("voltar");
+    if (v) v.addEventListener("click", function () { atual--; render(); });
+  }
+
+  function fim() {
+    var pts = soma(PERGUNTAS.length);
+    if (window.fbq) fbq("trackCustom", "PesquisaCompleta", { classe: classe(pts) });
+    document.getElementById("pular").style.display = "none";
+    card.innerHTML =
+      '<div class="prog"><span>Pronto!</span><span>100%</span></div><div class="barra"><i style="width:100%"></i></div>' +
+      '<div class="fim"><span class="zap-ic"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3z"/></svg></span>' +
+      '<h2>Último passo: entre no grupo</h2><p style="color:var(--muted)">É no grupo do WhatsApp que você recebe o link de cada aula e os materiais. Sem ele, você pode perder a 1ª aula em 20/10.</p>' +
+      '<a class="btn-zap" id="btn-zap" href="' + GRUPO + '" target="_blank" rel="noopener">Entrar no grupo do WhatsApp</a></div>';
+    document.getElementById("btn-zap").addEventListener("click", function () { if (window.fbq) fbq("trackCustom", "EntrouGrupo"); });
+  }
+
+  document.getElementById("link-pular").addEventListener("click", function (e) {
+    e.preventDefault(); atual = PERGUNTAS.length; fim();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

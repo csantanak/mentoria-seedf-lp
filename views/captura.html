@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#100A1F">
+<title>Semana Rumo à SEEDF · 7 aulas gratuitas com a Prof.ª Jaqueline Santos</title>
+<meta name="description" content="{{HEADLINE_TXT}} Aulas gratuitas e ao vivo, toda terça às 10h, a partir de 20/10.">
+<meta name="robots" content="noindex,follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Semana Rumo à SEEDF · 7 aulas gratuitas">
+<meta property="og:description" content="Conhecimentos Pedagógicos para a SEEDF com a Prof.ª Jaqueline Santos. Toda terça, 10h, a partir de 20/10.">
+<meta property="og:image" content="https://mentoria-seedf-2026-production.up.railway.app/assets/arte-mentoria.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="preload" as="image" href="/assets/jaqueline-avatar.jpg">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1122051733256103');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1122051733256103&ev=PageView&noscript=1"></noscript>
+<!-- /Meta Pixel -->
+
+<style>
+:root{
+  --night:#100A1F; --night-2:#170E2A; --panel:#1D1334; --panel-2:#251942;
+  --line:rgba(232,180,74,.18); --line-soft:rgba(255,255,255,.09);
+  --white:#fff; --text:#EDE7F7; --muted:#B0A3C9;
+  --gold:#E8B44A; --gold-light:#F9E7B4;
+  --foil:linear-gradient(176deg,#FBEFC8 0%,#E8B44A 38%,#B9832C 66%,#F4DCA0 100%);
+  --magenta:#E0218A; --violet:#8B3BE8; --grad-v:linear-gradient(135deg,#E0218A 0%,#8B3BE8 100%);
+  --ok:#59D9A0; --err:#FF8E86; --r:14px; --maxw:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--text);font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:18px}
+h1,h2,h3{font-family:Archivo,system-ui,sans-serif;margin:0;color:var(--white);text-wrap:balance}
+h1{font-weight:900;font-size:clamp(2rem,5.4vw,3.5rem);line-height:1.03;letter-spacing:-.03em}
+h2{font-weight:800;font-size:clamp(1.6rem,3.6vw,2.45rem);line-height:1.08;letter-spacing:-.025em}
+h3{font-weight:700;font-size:1.1rem;letter-spacing:-.01em;line-height:1.25}
+p{margin:0}
+.foil{background:var(--foil);-webkit-background-clip:text;background-clip:text;color:var(--gold);-webkit-text-fill-color:transparent}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.lede{font-size:1.07rem;color:var(--muted);max-width:60ch}
+section{padding-block:clamp(56px,8vw,96px);position:relative}
+.tint{background:var(--night-2);border-block:1px solid var(--line-soft)}
+.sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:34px;max-width:760px}
+.center{text-align:center;margin-inline:auto;align-items:center}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:Archivo,sans-serif;font-weight:800;font-size:1.02rem;letter-spacing:-.005em;text-decoration:none;color:#1B1005;background:var(--foil);border:0;border-radius:12px;padding:17px 26px;cursor:pointer;box-shadow:0 12px 30px -12px rgba(232,180,74,.65);transition:transform .15s ease,filter .15s ease;width:100%;max-width:440px}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-note{font-size:.8rem;color:var(--muted);margin-top:10px;display:flex;gap:8px;align-items:center;justify-content:center}
+
+/* topo */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(16,10,31,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:11px}
+.logo{display:flex;align-items:center;gap:10px;font-family:Archivo,sans-serif;font-weight:800;letter-spacing:.14em;color:#fff;font-size:1rem}
+.logo img{width:32px;height:32px;border-radius:8px}
+.top-cta{font-family:Archivo,sans-serif;font-weight:800;font-size:.8rem;text-decoration:none;color:#1B1005;background:var(--foil);padding:9px 15px;border-radius:99px;white-space:nowrap}
+
+/* hero */
+.hero{padding-block:clamp(30px,5vw,64px) clamp(46px,6vw,80px);overflow:hidden}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.glow.a{width:620px;height:620px;top:-280px;right:-200px;background:rgba(224,33,138,.28)}
+.glow.b{width:480px;height:480px;top:180px;left:-240px;background:rgba(139,59,232,.20)}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(28px,4vw,60px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:20px}
+.kicker{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);border:1px solid var(--gold);border-radius:99px;padding:6px 13px;background:rgba(232,180,74,.1)}
+.pill.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff3b5c;box-shadow:0 0 0 0 rgba(255,59,92,.7);animation:pulse 1.8s infinite}
+.pill.alt{border-color:rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.05)}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(255,59,92,0)}100%{box-shadow:0 0 0 0 rgba(255,59,92,0)}}
+.evento{font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(.92rem,2vw,1.08rem);letter-spacing:.32em;text-transform:uppercase;color:#fff;opacity:.92}
+.sub{font-size:clamp(1.03rem,2vw,1.17rem);color:var(--text);max-width:56ch}
+.sub b{color:#fff}
+.quando{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.q{background:rgba(255,255,255,.04);border:1px solid var(--line-soft);border-radius:12px;padding:12px 12px;display:flex;gap:10px;align-items:center}
+.q .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:rgba(232,180,74,.12);color:var(--gold);flex:none}
+.q .ic svg{width:18px;height:18px}
+.q b{display:block;font-family:Archivo,sans-serif;color:#fff;font-size:.98rem;line-height:1.15}
+.q span{display:block;font-size:.74rem;color:var(--muted);line-height:1.2}
+.apresenta{display:flex;align-items:center;gap:12px}
+.apresenta img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.apresenta p{font-size:.9rem;color:var(--muted);line-height:1.35}
+.apresenta b{color:#fff;display:block;font-family:Archivo,sans-serif}
+
+/* formulário */
+.form-card{position:relative;background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,30px);box-shadow:0 30px 70px -30px rgba(0,0,0,.8),0 0 0 1px rgba(224,33,138,.08)}
+.form-card::before{content:"";position:absolute;inset:-1px;border-radius:20px;padding:1px;background:linear-gradient(140deg,rgba(232,180,74,.6),transparent 40%,rgba(224,33,138,.4));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.form-top{display:flex;flex-direction:column;gap:4px;margin-bottom:18px}
+.form-top h2{font-size:1.45rem}
+.form-top p{font-size:.9rem;color:var(--muted)}
+.campo{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}
+.campo label,.campo legend{font-size:.82rem;font-weight:700;color:#fff}
+.campo input{width:100%;font:inherit;font-size:1rem;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:13px 14px;transition:border-color .15s,background .15s}
+.campo input::placeholder{color:#8a7ea3}
+.campo input:focus{outline:none;border-color:var(--gold);background:rgba(232,180,74,.06)}
+.campo.erro input{border-color:var(--err)}
+fieldset.campo{border:0;padding:0;margin:0 0 14px}
+.opcoes{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.opcao{position:relative}
+.opcao input{position:absolute;opacity:0;pointer-events:none}
+.opcao span{display:flex;align-items:center;gap:10px;font-size:.9rem;line-height:1.3;color:var(--text);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .15s}
+.opcao span::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid #7d7096;flex:none;transition:all .15s}
+.opcao input:checked+span{border-color:var(--gold);background:rgba(232,180,74,.1);color:#fff}
+.opcao input:checked+span::before{border-color:var(--gold);background:var(--gold);box-shadow:inset 0 0 0 3px var(--panel)}
+.opcao input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.campo.erro .opcao span{border-color:rgba(255,142,134,.5)}
+.msg-erro{font-size:.8rem;color:var(--err);min-height:0}
+.form-card .btn{max-width:none;margin-top:6px}
+.lgpd{font-size:.76rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.45}
+.lgpd a{color:var(--muted)}
+.form-status{font-size:.88rem;text-align:center;margin-top:10px;color:var(--err)}
+.btn[disabled]{opacity:.7;cursor:wait}
+
+/* números */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.num{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r);padding:20px 16px;text-align:center}
+.num b{display:block;font-family:Archivo,sans-serif;font-weight:900;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1;letter-spacing:-.03em}
+.num span{display:block;margin-top:8px;font-size:.84rem;color:var(--muted);line-height:1.3}
+
+/* aulas */
+.aulas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;counter-reset:a}
+.aula{display:flex;gap:16px;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r);padding:20px;transition:border-color .2s,transform .2s}
+.aula:hover{border-color:var(--line);transform:translateY(-2px)}
+.aula .n{flex:none;width:52px;height:52px;border-radius:13px;display:grid;place-items:center;background:var(--grad-v);font-family:Archivo,sans-serif;font-weight:900;font-size:1.3rem;color:#fff;box-shadow:0 10px 24px -10px rgba(224,33,138,.7)}
+.aula .data{font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.aula h3{margin:4px 0 6px}
+.aula p{font-size:.93rem;color:var(--muted);line-height:1.5}
+.aula.final{grid-column:1/-1;border-color:var(--line);background:linear-gradient(120deg,rgba(232,180,74,.1),var(--panel) 55%)}
+.aula.final .n{background:var(--foil);color:#1B1005}
+
+/* pra quem */
+.pq{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pq-box{border-radius:var(--r);padding:24px;border:1px solid var(--line-soft);background:var(--panel)}
+.pq-box h3{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.pq-box h3 i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:1rem}
+.pq-box.sim{border-color:rgba(89,217,160,.3)} .pq-box.sim h3 i{background:rgba(89,217,160,.15);color:var(--ok)}
+.pq-box.nao h3 i{background:rgba(255,142,134,.13);color:var(--err)}
+.pq-box ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.pq-box li{display:flex;gap:10px;font-size:.95rem;line-height:1.45}
+.pq-box li::before{content:"✓";color:var(--ok);font-weight:800;flex:none}
+.pq-box.nao li::before{content:"✕";color:var(--err)}
+
+/* dores */
+.dores{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.dor{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r);padding:22px}
+.dor .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(224,33,138,.13);color:#ff6fb6;margin-bottom:14px}
+.dor .ic svg{width:22px;height:22px}
+.dor p{font-family:Archivo,sans-serif;font-weight:700;color:#fff;font-size:1.04rem;line-height:1.3}
+.dor span{display:block;margin-top:8px;font-size:.9rem;color:var(--muted)}
+
+/* bio */
+.bio{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(26px,4vw,56px);align-items:center}
+.foto{position:relative;border-radius:20px;overflow:hidden;background:var(--panel);aspect-ratio:4/5;border:1px solid var(--line)}
+.foto img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.foto::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(16,10,31,.9))}
+.foto .tag{position:absolute;left:16px;bottom:16px;z-index:1;font-family:Archivo,sans-serif;font-weight:800;color:#fff;font-size:1.05rem;line-height:1.2}
+.foto .tag small{display:block;font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 4px}
+.cred{display:flex;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:13px}
+.cred b{font-family:Archivo,sans-serif;font-weight:900;font-size:1.45rem;line-height:1;min-width:42px;text-align:center}
+.cred span{font-size:.86rem;line-height:1.3;color:var(--text)}
+
+/* provas */
+.quote{display:flex;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,3vw,32px);margin-bottom:16px}
+.quote .aspas{font-family:Archivo,sans-serif;font-weight:900;font-size:4.4rem;line-height:.8;flex:none}
+.quote blockquote{margin:0;font-family:Archivo,sans-serif;font-weight:600;font-size:clamp(1.08rem,2.3vw,1.35rem);line-height:1.4;color:#fff}
+.quem{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.88rem;color:var(--muted)}
+.selo{font-family:"IBM Plex Mono",monospace;font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);border:1px solid rgba(89,217,160,.4);border-radius:99px;padding:4px 10px}
+.depos{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.depo{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px}
+.depo p{font-size:.96rem;line-height:1.55}
+.provas{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.prova{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r);overflow:hidden}
+.prova .cap{padding:12px 16px;border-bottom:1px solid var(--line-soft);font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.prova .corpo{display:grid;place-items:center;padding:16px;background:#0B0716}
+.print img{max-height:520px;width:auto;border-radius:10px}
+.video{width:100%;max-width:300px;aspect-ratio:9/16;border-radius:12px;overflow:hidden;position:relative;background:#000}
+.video iframe{width:100%;height:100%;border:0}
+.player{all:unset;cursor:pointer;position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(224,33,138,.35),#0B0716 70%)}
+.player .pl{width:70px;height:70px;border-radius:50%;background:var(--foil);display:grid;place-items:center;margin:0 auto 12px;box-shadow:0 10px 30px -8px rgba(232,180,74,.8)}
+.player .pl svg{width:28px;height:28px;margin-left:4px}
+.player p{text-align:center;color:#fff;font-family:Archivo,sans-serif;font-weight:700;padding:0 20px}
+.player small{display:block;color:var(--muted);font-weight:500;font-family:Manrope,sans-serif;margin-top:4px}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:10px;max-width:820px;margin:0 auto}
+.faq details{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:0 18px;transition:border-color .2s}
+.faq details[open]{border-color:var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:17px 0;font-family:Archivo,sans-serif;font-weight:700;color:#fff;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.4rem;color:var(--gold);transition:transform .2s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding-bottom:18px;color:var(--muted);font-size:.95rem}
+
+/* chamada final */
+.closer{text-align:center;overflow:hidden}
+.closer .wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:18px}
+.cta-mid{display:flex;flex-direction:column;align-items:center;margin-top:34px}
+
+footer{border-top:1px solid var(--line-soft);padding:26px 0 96px;font-size:.82rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:var(--muted)}
+
+/* barra fixa no celular */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(16,10,31,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line-soft);transform:translateY(110%);transition:transform .3s ease;display:none}
+.sticky.on{transform:none}
+.sticky .btn{max-width:none;padding:15px}
+
+/* animação ao rolar */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation:none!important}}
+
+@media (max-width:900px){
+  .hero-grid,.bio{grid-template-columns:1fr}
+  .nums{grid-template-columns:repeat(2,1fr)}
+  .aulas,.pq,.dores,.depos,.provas{grid-template-columns:1fr}
+  .foto{max-width:420px;aspect-ratio:1/1.05}
+  .sticky{display:block}
+  .top-cta{display:none}
+}
+@media (max-width:560px){
+  .quando{gap:8px}
+  .q{flex-direction:column;text-align:center;gap:6px;padding:10px 6px}
+  .q .ic{width:30px;height:30px}
+  .q b{font-size:.9rem}
+  .q span{font-size:.7rem}
+  .sub{font-size:1rem}
+  .hero-copy{gap:16px}
+}
+@media (max-width:420px){
+  .creds{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="logo"><img src="/assets/logo-vancce-96.png" alt="" width="32" height="32">VANCCE</div>
+    <a class="top-cta" href="#inscricao" data-cta="topo">Quero participar grátis</a>
+  </div>
+</header>
+
+<main>
+<!-- ===================== TOPO ===================== -->
+<section class="hero">
+  <div class="glow a"></div><div class="glow b"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="kicker">
+        <span class="pill live">Ao vivo · gratuito</span>
+        <span class="pill alt">7 aulas</span>
+      </div>
+      <p class="evento">Semana Rumo à SEEDF</p>
+      <h1>{{HEADLINE}}</h1>
+      <p class="sub">Aulas <b>gratuitas e ao vivo</b> com a Professora Jaqueline Santos, efetiva da SEEDF: a teoria do jeito que a banca cobra, questões comentadas e um <b>plano para você estudar com direção até o edital</b>.</p>
+
+      <div class="quando">
+        <div class="q"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><b>Início 20/10</b><span>até 01/12</span></div></div>
+        <div class="q"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Terças, 10h</b><span>horário de Brasília</span></div></div>
+        <div class="q"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></svg></span><div><b>Ao vivo</b><span>no YouTube</span></div></div>
+      </div>
+
+      <div class="apresenta">
+        <img src="/assets/jaqueline-avatar.jpg" alt="" width="46" height="46">
+        <p><b>Prof.ª Jaqueline Santos</b>Efetiva da SEEDF · 7 aprovações em concursos</p>
+      </div>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="form-card" id="inscricao">
+      <div class="form-top">
+        <p class="eyebrow">Inscrição gratuita</p>
+        <h2>Garanta sua vaga nas 7 aulas</h2>
+        <p>Leva 20 segundos. Os links chegam pelo grupo do WhatsApp.</p>
+      </div>
+      <form id="form" novalidate>
+        <div class="campo" data-campo="nome">
+          <label for="nome">Seu nome</label>
+          <input id="nome" name="nome" autocomplete="name" placeholder="Como você gosta de ser chamada(o)" required>
+          <span class="msg-erro"></span>
+        </div>
+        <div class="campo" data-campo="email">
+          <label for="email">Seu melhor e-mail</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" required>
+          <span class="msg-erro"></span>
+        </div>
+        <div class="campo" data-campo="whatsapp">
+          <label for="whatsapp">WhatsApp com DDD</label>
+          <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(61) 99999-9999" required>
+          <span class="msg-erro"></span>
+        </div>
+        <fieldset class="campo" data-campo="pergunta_qualificadora">
+          <legend>Qual é a sua situação hoje?</legend>
+          <div class="opcoes">
+            <label class="opcao"><input type="radio" name="pergunta_qualificadora" value="Professor(a) temporário(a) ou substituto(a) da SEEDF" data-q="sim"><span>Sou professor(a) temporário(a) ou substituto(a) da SEEDF</span></label>
+            <label class="opcao"><input type="radio" name="pergunta_qualificadora" value="Professor(a) em outra rede ou escola particular" data-q="sim"><span>Sou professor(a) em outra rede ou escola particular</span></label>
+            <label class="opcao"><input type="radio" name="pergunta_qualificadora" value="Formado(a) em licenciatura/Pedagogia, mas não atuo" data-q="sim"><span>Sou formado(a) em licenciatura/Pedagogia, mas não atuo</span></label>
+            <label class="opcao"><input type="radio" name="pergunta_qualificadora" value="Ainda cursando licenciatura/Pedagogia" data-q="nao"><span>Ainda estou cursando licenciatura/Pedagogia</span></label>
+            <label class="opcao"><input type="radio" name="pergunta_qualificadora" value="De outra área" data-q="nao"><span>Sou de outra área</span></label>
+          </div>
+          <span class="msg-erro"></span>
+        </fieldset>
+        <button class="btn" type="submit" id="enviar">
+          <span>Quero minha vaga gratuita</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="form-status" id="status" role="status"></p>
+        <p class="lgpd">🔒 Seus dados são usados só para enviar os conteúdos do evento. <a href="/politica-de-privacidade.html" target="_blank" rel="noopener">Privacidade</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NÚMEROS ===================== -->
+<section class="tint" style="padding-block:clamp(34px,5vw,52px)">
+  <div class="wrap nums">
+    <div class="num rv"><b class="foil">7</b><span>aulas ao vivo<br>de Conhecimentos Pedagógicos</span></div>
+    <div class="num rv d1"><b class="foil">R$ 0</b><span>100% gratuito,<br>do começo ao fim</span></div>
+    <div class="num rv d2"><b class="foil">10h</b><span>toda terça-feira,<br>de 20/10 a 01/12</span></div>
+    <div class="num rv d3"><b class="foil">7</b><span>aprovações em concursos<br>de quem conduz</span></div>
+  </div>
+</section>
+
+<!-- ===================== DORES ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Por que essa semana existe</p>
+      <h2>Quem espera o edital para começar já começa atrasado.</h2>
+      <p class="lede">Conhecimentos Pedagógicos é a parte da prova que todo mundo acha que domina, e é onde a maioria perde os pontos que separam aprovado de classificado.</p>
+    </div>
+    <div class="dores">
+      <div class="dor rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div><p>“Leio, entendo, mas na hora da questão eu travo.”</p><span>Saber a teoria não é o mesmo que saber como a banca transforma ela em pegadinha.</span></div>
+      <div class="dor rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div><p>“Não sei o que é da SEEDF e o que é material genérico.”</p><span>Currículo em Movimento e as Diretrizes de Avaliação do DF não estão no apostilão nacional.</span></div>
+      <div class="dor rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><p>“Trabalho o dia todo e estudo no que sobra.”</p><span>Sem um plano, o pouco tempo que você tem vira leitura solta que não fica.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AULAS ===================== -->
+<section class="tint" id="aulas">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">O que você vai aprender</p>
+      <h2>7 terças. 7 temas que a banca da SEEDF <span class="foil">não para de cobrar.</span></h2>
+    </div>
+    <div class="aulas">
+      <article class="aula rv"><div class="n">1</div><div><p class="data">Ter · 20/10 · 10h</p><h3>Tendências pedagógicas e teorias da aprendizagem</h3><p>Piaget, Vygotsky e Wallon do jeito que caem: você sai sabendo diferenciar cada autor em segundos.</p></div></article>
+      <article class="aula rv d1"><div class="n">2</div><div><p class="data">Ter · 27/10 · 10h</p><h3>Currículo em Movimento do DF + BNCC</h3><p>O que é exclusivo da SEEDF e derruba quem estudou só material nacional.</p></div></article>
+      <article class="aula rv"><div class="n">3</div><div><p class="data">Ter · 03/11 · 10h</p><h3>Avaliação na SEEDF</h3><p>Diretrizes de Avaliação Educacional e avaliação formativa, com questões no estilo da prova.</p></div></article>
+      <article class="aula rv d1"><div class="n">4</div><div><p class="data">Ter · 10/11 · 10h</p><h3>PPP e Gestão Democrática</h3><p>A Lei 4.751/2012 sem decoreba: os pontos que mais aparecem e como reconhecer a alternativa certa.</p></div></article>
+      <article class="aula rv"><div class="n">5</div><div><p class="data">Ter · 17/11 · 10h</p><h3>Educação inclusiva</h3><p>LBI e Educação Especial: as pegadinhas mais comuns e como não cair nelas.</p></div></article>
+      <article class="aula rv d1"><div class="n">6</div><div><p class="data">Ter · 24/11 · 10h</p><h3>LDB e o novo PNE</h3><p>Os artigos que mais caem, organizados para você revisar em minutos.</p></div></article>
+      <article class="aula final rv"><div class="n">7</div><div><p class="data">Ter · 01/12 · 10h · Aula de fechamento</p><h3>Discursiva + seu plano de estudo até o edital</h3><p>Como montar uma resposta que pontua por critério e um cronograma realista para quem trabalha. Você sai com o próximo passo definido.</p></div></article>
+    </div>
+    <div class="cta-mid rv">
+      <a class="btn" href="#inscricao" data-cta="aulas">Quero assistir às 7 aulas grátis</a>
+      <p class="btn-note">Gratuito · ao vivo · toda terça às 10h</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRA QUEM ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Pra quem é</p>
+      <h2>Feito para quem quer ser efetivo, não para quem quer só assistir.</h2>
+    </div>
+    <div class="pq">
+      <div class="pq-box sim rv">
+        <h3><i>✓</i>É para você se…</h3>
+        <ul>
+          <li>Você é professor(a) temporário(a) e quer a estabilidade de efetivo</li>
+          <li>Você dá aula em outra rede e quer entrar na SEEDF</li>
+          <li>Você é formado(a) e quer começar a se preparar antes do edital</li>
+          <li>Você estuda sozinho(a) e sente que falta direção</li>
+        </ul>
+      </div>
+      <div class="pq-box nao rv d1">
+        <h3><i>✕</i>Não é para você se…</h3>
+        <ul>
+          <li>Você procura fórmula mágica ou “resumão de véspera”</li>
+          <li>Você não pretende prestar a SEEDF</li>
+          <li>Você não consegue reservar a manhã de terça (ou ver a gravação no mesmo dia)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUEM APRESENTA ===================== -->
+<section class="tint">
+  <div class="wrap bio">
+    <div class="foto rv">
+      <img src="/assets/jaqueline.jpg" alt="Professora Jaqueline Santos" loading="lazy" width="580" height="837">
+      <p class="tag"><small>Quem conduz</small>Prof.ª Jaqueline Santos</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p class="eyebrow rv">Quem apresenta</p>
+      <h2 class="rv">Ela já esteve exatamente onde você está.</h2>
+      <p class="lede rv">Foram 8 anos como professora temporária antes de virar efetiva na SEEDF. Hoje a Jaqueline ensina o caminho que ela mesma fez, com direção, método e constância, para quem quer chegar à mesma vaga.</p>
+      <div class="creds rv">
+        <div class="cred"><b class="foil">7</b><span>aprovações em concursos</span></div>
+        <div class="cred"><b class="foil">10º</b><span>lugar no Regional de Ceilândia</span></div>
+        <div class="cred"><b class="foil">8</b><span>anos como professora temporária</span></div>
+        <div class="cred"><b class="foil">✓</b><span>Professora efetiva da SEEDF</span></div>
+      </div>
+      <a class="btn rv" href="#inscricao" data-cta="bio" style="align-self:flex-start">Quero aprender com a Jaqueline</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROVAS ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Resultados</p>
+      <h2>Quem estudou com a Jaqueline conta como foi.</h2>
+    </div>
+    <div class="quote rv">
+      <span class="aspas foil" aria-hidden="true">“</span>
+      <div>
+        <blockquote>Não me arrependo de NENHUM segundo de ter feito essa mentoria. Desde o dia em que comecei estou a todo vapor, estudando todos os dias.</blockquote>
+        <div class="quem">Osias · aluno da mentoria <span class="selo">Aprovado · SEEDF Efetivo</span></div>
+      </div>
+    </div>
+    <div class="depos">
+      <article class="depo rv"><p>“Fui aprovada no concurso da prefeitura de Feira de Santana. Seu projeto de pegar em nossa mão e nos ensinar a interpretar as questões fez toda a diferença nos meus estudos.”</p><div class="quem">Cris · aluna <span class="selo">Aprovada · Feira de Santana</span></div></article>
+      <article class="depo rv d1"><p>“Você resgatou algo que eu nem sabia mais o que era: esse acreditar que é possível. Se não fosse você, eu não teria visto nem a metade dos conteúdos.”</p><div class="quem">Clélia · aluna</div></article>
+    </div>
+    <div class="provas">
+      <div class="prova rv">
+        <p class="cap">Depoimento em vídeo · aprovado na SEEDF</p>
+        <div class="corpo">
+          <div class="video" id="video">
+            <button class="player" id="player" type="button" aria-label="Assistir ao depoimento">
+              <div><div class="pl"><svg viewBox="0 0 24 24" fill="#1B1005"><path d="M8 5v14l11-7z"/></svg></div><p>Ouça quem estudou e passou<small>Toque para assistir</small></p></div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="prova rv d1">
+        <p class="cap">Mensagem recebida</p>
+        <div class="corpo print"><img src="/assets/depoimento-cris-600.jpg" alt="Print de WhatsApp de uma aluna contando a aprovação no concurso de Feira de Santana" loading="lazy" width="600" height="1116"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="tint">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <p class="eyebrow">Dúvidas</p>
+      <h2>Perguntas rápidas</h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>É gratuito mesmo?</summary><p>Sim. As 7 aulas são 100% gratuitas. Você só precisa se inscrever para receber os links no grupo do WhatsApp.</p></details>
+      <details><summary>Onde vão ser as aulas?</summary><p>Ao vivo no YouTube, toda terça às 10h (horário de Brasília). O link de cada aula é enviado no grupo do WhatsApp.</p></details>
+      <details><summary>Não consigo assistir às 10h. E agora?</summary><p>Inscreva-se do mesmo jeito. Você recebe os avisos no grupo e pode assistir à aula depois, enquanto ela estiver disponível.</p></details>
+      <details><summary>Serve para qualquer área?</summary><p>Sim. Conhecimentos Pedagógicos cai para todos os cargos de professor da SEEDF, de Pedagogia às disciplinas específicas.</p></details>
+      <details><summary>O edital ainda não saiu. Vale a pena?</summary><p>É exatamente o melhor momento. Quem chega ao edital com a base pedagógica pronta usa o tempo depois dele para revisar e treinar, e não para começar do zero.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAMADA FINAL ===================== -->
+<section class="closer">
+  <div class="glow a" style="top:-200px;right:auto;left:30%"></div>
+  <div class="wrap">
+    <p class="eyebrow rv">Semana Rumo à SEEDF · começa 20/10</p>
+    <h2 class="rv">O próximo edital vai te encontrar <span class="foil">preparada(o) ou recomeçando?</span></h2>
+    <p class="lede rv">7 aulas gratuitas, toda terça às 10h. Sua vaga leva 20 segundos.</p>
+    <a class="btn rv" href="#inscricao" data-cta="final">Quero minha vaga gratuita</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Vancce · Semana Rumo à SEEDF · Prof.ª Jaqueline Santos</span>
+    <a href="/politica-de-privacidade.html">Política de Privacidade</a>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn" href="#inscricao" data-cta="fixo">Quero minha vaga gratuita</a></div>
+
+<script>
+(function () {
+  "use strict";
+  var APPS_SCRIPT_URL = "{{APPS_SCRIPT_URL}}";
+  var VERSAO = "{{VERSAO}}";
+  var SIGLA = "{{SIGLA}}";
+  var UTM = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+
+  /* UTMs: lidas da URL; se vierem vazias, usa as da última visita */
+  var params = new URLSearchParams(location.search);
+  var utm = {};
+  UTM.forEach(function (k) { var v = params.get(k); if (v) utm[k] = v.slice(0, 120); });
+  try {
+    if (Object.keys(utm).length) localStorage.setItem("srs_utm", JSON.stringify(utm));
+    else utm = JSON.parse(localStorage.getItem("srs_utm") || "{}");
+  } catch (_) {}
+
+  /* animação ao rolar */
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: .12, rootMargin: "0px 0px -40px 0px" }) : null;
+  document.querySelectorAll(".rv").forEach(function (el) { io ? io.observe(el) : el.classList.add("in"); });
+
+  /* barra fixa no celular: aparece quando o formulário sai da tela */
+  var sticky = document.getElementById("sticky");
+  var card = document.getElementById("inscricao");
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      var visivel = es[0].isIntersecting;
+      var passou = es[0].boundingClientRect.top < 0;
+      sticky.classList.toggle("on", !visivel && passou || (!visivel && window.scrollY > 600));
+    }, { threshold: 0 }).observe(card);
+  }
+
+  /* vídeo só carrega no clique (página leve) */
+  document.getElementById("player").addEventListener("click", function () {
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/PDiFxAVU3DE?autoplay=1&rel=0&playsinline=1";
+    f.allow = "autoplay; encrypted-media; picture-in-picture"; f.allowFullscreen = true; f.title = "Depoimento";
+    var box = document.getElementById("video"); box.innerHTML = ""; box.appendChild(f);
+  });
+
+  /* máscara do WhatsApp */
+  var zap = document.getElementById("whatsapp");
+  zap.addEventListener("input", function () {
+    var d = zap.value.replace(/\D/g, "").slice(0, 11);
+    var r = d;
+    if (d.length > 2) r = "(" + d.slice(0, 2) + ") " + d.slice(2);
+    if (d.length > 7) r = "(" + d.slice(0, 2) + ") " + d.slice(2, d.length - 4) + "-" + d.slice(-4);
+    zap.value = r;
+  });
+
+  var form = document.getElementById("form");
+  var btn = document.getElementById("enviar");
+  var status = document.getElementById("status");
+  var comecou = false;
+  form.addEventListener("focusin", function () {
+    if (comecou) return; comecou = true;
+    if (window.fbq) fbq("trackCustom", "FormStart", { versao: VERSAO });
+  });
+
+  function erro(campo, msg) {
+    var el = form.querySelector('[data-campo="' + campo + '"]');
+    el.classList.toggle("erro", !!msg);
+    el.querySelector(".msg-erro").textContent = msg || "";
+    return !msg;
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var nome = form.nome.value.trim();
+    var email = form.email.value.trim().toLowerCase();
+    var whatsapp = form.whatsapp.value.trim();
+    var marcada = form.querySelector('input[name="pergunta_qualificadora"]:checked');
+    var ok = true;
+    ok = erro("nome", nome.length < 2 ? "Escreva seu nome." : "") && ok;
+    ok = erro("email", /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email) ? "" : "Confira o e-mail.") && ok;
+    ok = erro("whatsapp", whatsapp.replace(/\D/g, "").length < 10 ? "Informe o WhatsApp com DDD." : "") && ok;
+    ok = erro("pergunta_qualificadora", marcada ? "" : "Escolha uma opção.") && ok;
+    if (!ok) { var p = form.querySelector(".erro input"); if (p) p.focus(); return; }
+
+    btn.disabled = true; btn.firstElementChild.textContent = "Enviando…"; status.textContent = "";
+
+    var dados = {
+      tipo: "lead", nome: nome, email: email, whatsapp: whatsapp,
+      pergunta_qualificadora: marcada.value,
+      qualificado: marcada.getAttribute("data-q") === "sim" ? "sim" : "não",
+      utm_source: utm.utm_source || "", utm_medium: utm.utm_medium || "", utm_campaign: utm.utm_campaign || "",
+      utm_content: utm.utm_content || "", utm_term: utm.utm_term || "", versao: VERSAO
+    };
+
+    var envios = [];
+    /* 1) planilha (Apps Script): POST no-cors com corpo de formulário */
+    if (APPS_SCRIPT_URL) {
+      envios.push(fetch(APPS_SCRIPT_URL, { method: "POST", mode: "no-cors", body: new URLSearchParams(dados), keepalive: true }).catch(function () {}));
+    }
+    /* 2) cópia de segurança no próprio servidor */
+    envios.push(fetch("/api/captura", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dados), keepalive: true }).catch(function () {}));
+
+    /* evento de Lead para o anúncio otimizar */
+    if (window.fbq) fbq("track", "Lead", { content_name: "Semana Rumo à SEEDF", versao: VERSAO, qualificado: dados.qualificado });
+    try { localStorage.setItem("srs_email", email); localStorage.setItem("srs_nome", nome.split(" ")[0]); } catch (_) {}
+
+    var destino = new URLSearchParams();
+    UTM.forEach(function (k) { if (utm[k]) destino.set(k, utm[k]); });
+    destino.set("email", email);
+    destino.set("v", VERSAO);
+    var ir = function () { location.href = "/" + SIGLA + "-obrigado?" + destino.toString(); };
+    Promise.race([Promise.all(envios), new Promise(function (r) { setTimeout(r, 2500); })]).then(ir, ir);
+  });
+
+  document.querySelectorAll("[data-cta]").forEach(function (a) {
+    a.addEventListener("click", function () { if (window.fbq) fbq("trackCustom", "CTAClick", { local: a.getAttribute("data-cta"), versao: VERSAO }); });
+  });
+})();
+</script>
+</body>
+</html>

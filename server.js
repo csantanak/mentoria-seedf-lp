@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { registrarCaptura, SQL_CAPTURAS } from "./captura.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
@@ -24,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.json({ limit: "16kb" }));
-app.use(express.static(path.join(__dirname, "public"), { maxAge: "1h" }));
+app.use(express.static(path.join(__dirname, "public"), { maxAge: "1h", index: false, extensions: ["html"] }));
 
 /* ------------------------------------------------------------------ *
  * Armazenamento: Postgres em produção, arquivo JSON para rodar local  *
@@ -51,6 +52,7 @@ async function initStore() {
         criado_em  TIMESTAMPTZ NOT NULL DEFAULT now()
       )`);
     await pool.query(`CREATE INDEX IF NOT EXISTS leads_criado_em_idx ON leads (criado_em DESC)`);
+    await pool.query(SQL_CAPTURAS);
     console.log("Armazenamento: Postgres");
   } else {
     await fs.mkdir(path.dirname(FILE_DB), { recursive: true });
@@ -151,26 +153,31 @@ app.post("/api/lead", async (req, res) => {
 /* ------------------------------------------------------------------ *
  * Painel                                                              *
  * ------------------------------------------------------------------ */
-function protegido(req, res, next) {
-  if (!ADMIN_PASS) {
-    return res.status(503).send("Defina ADMIN_PASS nas variáveis do Railway para liberar o painel.");
-  }
-  const header = req.headers.authorization || "";
-  const [tipo, valor] = header.split(" ");
-  if (tipo === "Basic" && valor) {
-    const credencial = Buffer.from(valor, "base64").toString("utf8");
-    const separador = credencial.indexOf(":");
-    const u = separador >= 0 ? credencial.slice(0, separador) : "";
-    const p = separador >= 0 ? credencial.slice(separador + 1) : "";
-    const igual = (a, b) => {
-      const aa = Buffer.from(a);
-      const bb = Buffer.from(b);
-      return aa.length === bb.length && crypto.timingSafeEqual(aa, bb);
-    };
-    if (igual(u, ADMIN_USER) && igual(p, ADMIN_PASS)) return next();
-  }
-  res.set("WWW-Authenticate", 'Basic realm="Painel de leads"').status(401).send("Acesso restrito.");
+function protegidoCom(usuario, senha, area) {
+  return (req, res, next) => {
+    if (!senha) {
+      return res.status(503).send("Defina a senha nas variáveis do Railway para liberar esta área.");
+    }
+    const header = req.headers.authorization || "";
+    const [tipo, valor] = header.split(" ");
+    if (tipo === "Basic" && valor) {
+      const credencial = Buffer.from(valor, "base64").toString("utf8");
+      const separador = credencial.indexOf(":");
+      const u = separador >= 0 ? credencial.slice(0, separador) : "";
+      const p = separador >= 0 ? credencial.slice(separador + 1) : "";
+      const igual = (a, b) => {
+        const aa = Buffer.from(a);
+        const bb = Buffer.from(b);
+        return aa.length === bb.length && crypto.timingSafeEqual(aa, bb);
+      };
+      if (igual(u, usuario) && igual(p, senha)) return next();
+    }
+    res.set("WWW-Authenticate", `Basic realm="${area}"`).status(401).send("Acesso restrito.");
+  };
 }
+const protegido = protegidoCom(ADMIN_USER, ADMIN_PASS, "Painel de leads");
+
+registrarCaptura(app, { dir: __dirname, getPool: () => pool, protegidoCom });
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));

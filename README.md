@@ -1,5 +1,25 @@
 # Mentoria SEEDF Efetivo — captura de leads
 
+## Lançamento "Semana Rumo à SEEDF" (sigla `srs`, campanha `seedf2627`)
+
+| Endereço | O que é |
+|---|---|
+| `/` e `/srs` | link principal: sorteia k01, k02 ou k03 e repassa as UTMs |
+| `/srs-k01`, `/srs-k02`, `/srs-k03` | as 3 versões (só muda a headline — em `captura.js`, `VERSOES`) |
+| `/srs-obrigado` | confirmação + pesquisa de 10 perguntas (pontos em `views/obrigado.html`) |
+| `/srs-bio`, `-stories`, `-mc`, `-dm`, `-yt`, `-live`, `-zap`, `-email` | links curtos (302) com UTM |
+| `/srs-stories-0510` (qualquer canal + `-algo`) | mesmo link, com `utm_term=stories-0510` |
+| `/dash` | painel da captação (senha `DASH_USER`/`DASH_PASS`) |
+| `/mentoria` | a antiga página de venda, preservada |
+
+Cada cadastro e cada resposta vão para a planilha (Apps Script, POST no-cors) **e** para uma
+cópia de segurança no Postgres (tabela `capturas`). O `/dash` lê a planilha pelo servidor
+usando `APPS_SCRIPT_CHAVE` — a chave nunca vai para o navegador nem para o repositório.
+Se a planilha falhar, o dash mostra a cópia de segurança. `/dash?demo=1` mostra dados fictícios.
+
+---
+
+
 Landing page de captura com cupom de 10%, caminho direto para o checkout e painel de cadastros.
 
 - `/`            página pública (a ficha de inscrição)
