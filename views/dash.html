@@ -191,16 +191,18 @@ details.tabela td,details.tabela th{padding:5px 6px;border-bottom:1px solid var(
     k03: "Em 7 terças-feiras, domine os Conhecimentos Pedagógicos que a banca da SEEDF mais cobra."
   };
   var PERGUNTAS = {
-    conhece: ["Já conhecia a Professora Jaqueline?", ["Já fui aluno(a) dela", "Acompanho no Instagram ou YouTube", "Conheci agora"]],
-    tempo_estudo: ["Há quanto tempo estuda para a SEEDF?", ["Mais de 1 ano", "De 6 meses a 1 ano", "Menos de 6 meses", "Ainda não comecei"]],
-    ja_fez: ["Já fez prova da SEEDF?", ["Sim, passei mas não fui nomeado(a)", "Sim, mas não passei", "Não, vai ser a primeira vez"]],
-    investiu: ["Já investiu em curso ou mentoria?", ["Sim, mais de uma vez", "Sim, uma vez", "Nunca"]],
-    investir_mes: ["Quanto investiria por mês?", ["Mais de R$ 300", "De R$ 100 a R$ 300", "Até R$ 100", "Só uso conteúdo gratuito"]],
-    renda: ["Renda mensal", ["Acima de R$ 6.000", "De R$ 3.000 a R$ 6.000", "De R$ 1.500 a R$ 3.000", "Até R$ 1.500"]],
-    trabalha: ["Trabalha hoje?", ["Sim, na educação", "Sim, em outra área", "Não estou trabalhando"]],
-    horas_semana: ["Horas de estudo por semana", ["Mais de 20h", "De 10 a 20h", "De 5 a 10h", "Menos de 5h"]],
-    trava: ["O que mais trava", ["Manter a constância", "Saber o que estudar", "Discursiva", "Conteúdo pedagógico", "Falta de tempo"]],
-    idade: ["Idade", ["18 a 24 anos", "25 a 34 anos", "35 a 44 anos", "45 anos ou mais"]]
+    conhece: ["Você já conhecia a Professora Jaqueline?", ["Já fui aluno(a) dela", "Acompanho no Instagram ou YouTube", "Conheci agora"]],
+    tempo_temporario: ["Há quanto tempo você é professor(a) temporário(a) ou substituto(a)?", ["1 a 2 anos", "3 a 5 anos", "6 a 10 anos", "10 a 15 anos", "Mais de 15 anos", "Nunca fui temporário(a)"]],
+    vezes_concurso: ["Quantas vezes você já fez o concurso da SEEDF?", ["Nenhuma, vai ser a primeira", "1 vez", "2 vezes", "3 vezes ou mais"]],
+    vezes_pss: ["Quantas vezes você já fez o processo seletivo de professor substituto?", ["Nenhuma", "1 vez", "2 vezes", "3 vezes ou mais"]],
+    investiu_curso: ["Você já investiu em curso preparatório?", ["Sim, mais de uma vez", "Sim, uma vez", "Nunca"]],
+    investiu_mentoria: ["Você já investiu em mentoria para a SEEDF?", ["Sim", "Não"]],
+    investir_mentoria: ["Quanto você investiria em uma mentoria para a SEEDF?", ["De R$ 1.000 a R$ 1.500", "De R$ 800 a R$ 1.000", "De R$ 500 a R$ 799", "De R$ 300 a R$ 500", "Menos de R$ 300"]],
+    investir_curso: ["E em um curso preparatório para a SEEDF?", ["De R$ 500 a R$ 797", "De R$ 300 a R$ 500", "Menos de R$ 300"]],
+    renda: ["Qual é a sua renda mensal?", ["Acima de R$ 6.500", "De R$ 3.000 a R$ 6.500", "De R$ 1.500 a R$ 3.000", "Até R$ 1.500"]],
+    horas_semana: ["Quantas horas por semana você consegue estudar?", ["Mais de 20h", "De 10 a 20h", "De 5 a 10h", "Menos de 5h"]],
+    trava: ["O que mais te trava hoje?", ["Manter a constância", "Saber o que estudar", "Discursiva", "Conteúdo pedagógico", "Falta de tempo"]],
+    idade: ["Qual é a sua idade?", ["18 a 24 anos", "25 a 34 anos", "35 a 44 anos", "45 anos ou mais"]]
   };
 
   /* ---------------- utilidades ---------------- */
@@ -499,8 +501,8 @@ details.tabela td,details.tabela th{padding:5px 6px;border-bottom:1px solid var(
       leads.push({ data_hora: d.toISOString(), email: e, qualificado: q ? "sim" : "não", utm_source: s[0], utm_medium: s[1], utm_term: s[2], utm_content: s[0] === "meta" ? cts[i % 4] : "", versao: v });
       if (Math.random() < .62) {
         var p = { email: e }; var pts = 0;
-        Object.keys(PERGUNTAS).forEach(function (k) { var o = PERGUNTAS[k][1]; var j = Math.floor(Math.random() * o.length); p[k] = o[j]; pts += (o.length - j) * 4 - 4; });
-        p.pontos = pts; p.classe = pts >= 90 ? "S" : pts >= 60 ? "A" : pts >= 30 ? "B" : "C"; pesq.push(p);
+        Object.keys(PERGUNTAS).forEach(function (k) { var o = PERGUNTAS[k][1]; var j = Math.floor(Math.random() * o.length); p[k] = o[j]; pts += (o.length - j) * 5 - 2; });
+        p.pontos = pts; p.classe = pts >= 105 ? "S" : pts >= 70 ? "A" : pts >= 35 ? "B" : "C"; pesq.push(p);
       }
     }
     return { leads: leads, pesquisa: pesq };

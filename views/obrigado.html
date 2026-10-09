@@ -86,7 +86,7 @@ h1{font-size:clamp(1.55rem,5vw,2rem);line-height:1.1;letter-spacing:-.02em}
     <div><b>Ao vivo</b><span>no YouTube</span></div>
   </div>
 
-  <p class="passo"><span class="n">1</span><span><b>Responda a 10 perguntas rápidas</b> (1 minuto) para a Jaqueline preparar as aulas para você.</span></p>
+  <p class="passo"><span class="n">1</span><span><b>Responda a 12 perguntas rápidas</b> (1 minuto) para a Jaqueline preparar as aulas para você.</span></p>
   <p class="passo"><span class="n">2</span><span><b>Entre no grupo do WhatsApp</b>: é lá que chegam os links das aulas.</span></p>
 
   <div class="card" id="card" aria-live="polite"></div>
@@ -102,23 +102,27 @@ h1{font-size:clamp(1.55rem,5vw,2rem);line-height:1.1;letter-spacing:-.02em}
 
   /* ===================================================================
      PESQUISA · pontos por resposta (lead scoring)
-     Classes: S >= 90 · A 60–89 · B 30–59 · C < 30   (máximo 125)
+     Classes: S >= 105 · A 70–104 · B 35–69 · C < 35   (máximo 145)
      =================================================================== */
   var PERGUNTAS = [
     { id: "conhece", t: "Você já conhecia a Professora Jaqueline?", o: [
       ["Já fui aluno(a) dela", 15], ["Acompanho no Instagram ou YouTube", 10], ["Conheci agora", 0]] },
-    { id: "tempo_estudo", t: "Há quanto tempo você estuda para a SEEDF?", o: [
-      ["Mais de 1 ano", 10], ["De 6 meses a 1 ano", 10], ["Menos de 6 meses", 5], ["Ainda não comecei", 0]] },
-    { id: "ja_fez", t: "Você já fez prova da SEEDF?", o: [
-      ["Sim, passei mas não fui nomeado(a)", 10], ["Sim, mas não passei", 10], ["Não, vai ser a primeira vez", 5]] },
-    { id: "investiu", t: "Você já investiu em curso ou mentoria para concurso?", o: [
-      ["Sim, mais de uma vez", 15], ["Sim, uma vez", 10], ["Nunca", 0]] },
-    { id: "investir_mes", t: "Quanto você estaria disposto(a) a investir por mês na sua preparação?", o: [
-      ["Mais de R$ 300", 20], ["De R$ 100 a R$ 300", 15], ["Até R$ 100", 0], ["Só uso conteúdo gratuito", -20]] },
+    { id: "tempo_temporario", t: "Há quanto tempo você é professor(a) temporário(a) ou substituto(a)?", o: [
+      ["1 a 2 anos", 5], ["3 a 5 anos", 10], ["6 a 10 anos", 10], ["10 a 15 anos", 10], ["Mais de 15 anos", 10], ["Nunca fui temporário(a)", 0]] },
+    { id: "vezes_concurso", t: "Quantas vezes você já fez o concurso da SEEDF?", o: [
+      ["Nenhuma, vai ser a primeira", 5], ["1 vez", 10], ["2 vezes", 10], ["3 vezes ou mais", 10]] },
+    { id: "vezes_pss", t: "Quantas vezes você já fez o processo seletivo de professor substituto?", o: [
+      ["Nenhuma", 0], ["1 vez", 5], ["2 vezes", 10], ["3 vezes ou mais", 10]] },
+    { id: "investiu_curso", t: "Você já investiu em curso preparatório?", o: [
+      ["Sim, mais de uma vez", 10], ["Sim, uma vez", 5], ["Nunca", 0]] },
+    { id: "investiu_mentoria", t: "Você já investiu em mentoria para a SEEDF?", o: [
+      ["Sim", 15], ["Não", 0]] },
+    { id: "investir_mentoria", t: "Quanto você investiria em uma mentoria para a SEEDF?", o: [
+      ["De R$ 1.000 a R$ 1.500", 20], ["De R$ 800 a R$ 1.000", 20], ["De R$ 500 a R$ 799", 10], ["De R$ 300 a R$ 500", 0], ["Menos de R$ 300", -15]] },
+    { id: "investir_curso", t: "E em um curso preparatório para a SEEDF?", o: [
+      ["De R$ 500 a R$ 797", 10], ["De R$ 300 a R$ 500", 5], ["Menos de R$ 300", 0]] },
     { id: "renda", t: "Qual é a sua renda mensal?", o: [
-      ["Acima de R$ 6.000", 15], ["De R$ 3.000 a R$ 6.000", 10], ["De R$ 1.500 a R$ 3.000", 0], ["Até R$ 1.500", -10]] },
-    { id: "trabalha", t: "Você trabalha hoje?", o: [
-      ["Sim, na educação", 10], ["Sim, em outra área", 5], ["Não estou trabalhando", -5]] },
+      ["Acima de R$ 6.500", 15], ["De R$ 3.000 a R$ 6.500", 10], ["De R$ 1.500 a R$ 3.000", 0], ["Até R$ 1.500", -10]] },
     { id: "horas_semana", t: "Quantas horas por semana você consegue estudar?", o: [
       ["Mais de 20h", 10], ["De 10 a 20h", 10], ["De 5 a 10h", 5], ["Menos de 5h", 0]] },
     { id: "trava", t: "O que mais te trava hoje?", o: [
@@ -126,7 +130,7 @@ h1{font-size:clamp(1.55rem,5vw,2rem);line-height:1.1;letter-spacing:-.02em}
     { id: "idade", t: "Qual é a sua idade?", o: [
       ["18 a 24 anos", 0], ["25 a 34 anos", 5], ["35 a 44 anos", 10], ["45 anos ou mais", 10]] }
   ];
-  var classe = function (p) { return p >= 90 ? "S" : p >= 60 ? "A" : p >= 30 ? "B" : "C"; };
+  var classe = function (p) { return p >= 105 ? "S" : p >= 70 ? "A" : p >= 35 ? "B" : "C"; };
 
   var q = new URLSearchParams(location.search);
   var email = (q.get("email") || "").toLowerCase();
