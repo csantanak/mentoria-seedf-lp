@@ -128,7 +128,7 @@ app.post("/api/lead", async (req, res) => {
       email: texto(req.body.email, 160).toLowerCase(),
       area: texto(req.body.area, 80),
       momento: texto(req.body.momento, 120),
-      cupom: "SEEDF10",
+      cupom: "BLACKFRIDAY",
       origem: texto(req.body.origem, 200)
     };
     const digitos = lead.whatsapp.replace(/\D/g, "");

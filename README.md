@@ -1,6 +1,6 @@
 # Mentoria SEEDF Efetivo — captura de leads
 
-Landing page de captura com cupom de 10%, caminho direto para o checkout e painel de cadastros.
+Landing page de captura com o preço de Black Friday (R$ 997 → R$ 697), caminho direto para o checkout e painel de cadastros.
 
 - `/`            página pública (a ficha de inscrição)
 - `/api/lead`    recebe o cadastro (POST JSON)
@@ -39,8 +39,8 @@ Tudo na página está em `public/index.html`. No fim do arquivo:
 ```js
 const CONFIG = {
   whatsapp: "5561981993941",
-  cupom:    "SEEDF10",
-  checkout: "https://go.hotmart.com/I107610411Q?dp=1"
+  cupom:    "BLACKFRIDAY",
+  checkout: "https://pay.hotmart.com/I107610411Q?off=hr52sh5d"
 };
 ```
 
@@ -48,7 +48,7 @@ const CONFIG = {
 
 1. O navegador valida nome, WhatsApp, área e consentimento e envia para `/api/lead`.
 2. O servidor evita duplicidade por WhatsApp e grava no Postgres.
-3. A pessoa vê o cupom na tela e um botão que abre o WhatsApp com os dados prontos.
+3. A pessoa vê o preço de Black Friday, o link de checkout com desconto e um botão que abre o WhatsApp com os dados prontos.
 
 Se o servidor estiver fora do ar, a página não informa falsamente que houve
 cadastro: ela mostra o erro e oferece o envio dos dados pelo WhatsApp.
